@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+config.toml
+.humanizer_runs/
+.pytest_cache/
+dist/
+build/
+*.log
