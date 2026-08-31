@@ -1,108 +1,156 @@
 # Manuscript Humanizer
 
-Detector-aware academic manuscript humanizer. Rewrites LLM-generated scholarly text to reduce AI-detector scores while preserving meaning, citations, and numbers.
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Offline-first](https://img.shields.io/badge/AI%20humanizer-offline--first-green.svg)](https://github.com/drmikecrypto/manuscript-humanizer)
+[![GPTZero calibrated](https://img.shields.io/badge/GPTZero%20%2F%20ZeroGPT-calibrated-orange.svg)](https://www.zerogpt.com/)
 
-## What makes this different
+**Detector-aware academic manuscript humanizer** — rewrite LLM-generated scholarly text (thesis chapters, journal sections, cover letters) to reduce **GPTZero**, **Turnitin AI**, and stylometric classifier scores while preserving **numbers**, **citations**, and **facts**.
 
-Most GitHub "humanizers" are prompt files or synonym swappers. This project is a **closed-loop pipeline**:
+> Not another synonym spinner. A closed-loop, segment-scored rewrite pipeline with ONNX AIGC detection, domain lexicons, and fidelity gates.
 
+**Keywords:** `ai humanizer` · `academic writing` · `gptzero bypass` · `turnitin ai` · `manuscript rewriter` · `stylometrics` · `burstiness` · `onnx` · `offline nlp` · `research paper` · `thesis humanizer` · `ai detector evasion` · `scholarly prose`
+
+---
+
+## TL;DR — run it in 10 seconds
+
+```powershell
+git clone https://github.com/drmikecrypto/manuscript-humanizer.git
+cd manuscript-humanizer
+.\humanize.ps1 your_draft.md
+# → your_draft_humanized.md
 ```
-Input → Score (patterns + statistics [+ optional GPTZero])
-      → Rewrite (LLM with academic constraints)
-      → Validate (numbers, citations, meaning overlap)
-      → Re-score → iterate until target or max passes
-```
 
-| Layer | What it does |
-|-------|-------------|
-| **Pattern analyzer** | 24 academic AI-tell regex patterns (stock phrases, AI vocab, structure) |
-| **Statistical analyzer** | Burstiness, repetition, sentence-opener diversity |
-| **Fidelity validator** | Blocks rewrites that drop numbers, citations, or drift in length |
-| **Iterative rewriter** | LLM rewrite with issue-specific feedback each pass |
-| **External detector** | Optional GPTZero API blend for real detector signal |
-
-## Quick start
+First run auto-creates `.venv` and installs deps. No API key. No cloud.
 
 ```bash
-cd E:\GithubProject\manuscript-humanizer
-
-# Create venv
-python -m venv .venv
-.venv\Scripts\activate
-
-# Install
-pip install -e .
-
-# Configure
-copy config.example.toml config.toml
-# Edit config.toml — set api_key and model
-
-# Score without rewriting (no API key needed)
-mh score -f examples\sample_ai_draft.txt
-
-# Humanize (requires API key)
-mh humanize -f examples\sample_ai_draft.txt -o output.txt
+pip install -e ".[full]"
+mh your_draft.md
+mh score your_draft.md --show-spans
 ```
 
-### Environment variables
+---
 
-| Variable | Purpose |
-|----------|---------|
-| `OPENAI_API_KEY` | OpenAI / compatible APIs |
-| `DEEPSEEK_API_KEY` | DeepSeek (set `provider = "deepseek"` in config) |
-| `GPTZERO_API_KEY` | Optional real detector feedback |
+## Why this exists
 
-### DeepSeek example config
+Most GitHub "humanizers" are:
+
+- a ChatGPT prompt in a README, or  
+- a thesaurus that breaks citations, or  
+- a perplexity/burstiness toy that detectors stopped caring about in 2024.
+
+Modern detectors (GPTZero, Turnitin, Pangram) use **ML classifiers on overlapping segments** — template Methods prose, uniform sentence rhythm, stock transitions (`Furthermore`, `Moreover`, rule-of-three lists).
+
+This project targets those signals **directly**:
+
+```
+┌─────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  Your draft │───▶│ Segment detector │───▶│ Sentence heatmap │
+└─────────────┘    │ ONNX + patterns  │    └────────┬────────┘
+                   └──────────────────┘             │
+                                                    ▼
+┌─────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│ Humanized   │◀───│ Fidelity gate    │◀───│ Bootstrap /     │
+│ manuscript  │    │ nums · cites     │    │ targeted rewrite│
+└─────────────┘    └──────────────────┘    └─────────────────┘
+```
+
+| Subsystem | What it does |
+|-----------|--------------|
+| **ONNX segment detector** | AIGC classifier on sliding windows + per-sentence heatmap |
+| **ZeroGPT proxy** | Offline scorer calibrated against live ZeroGPT sentence flags |
+| **Bootstrap one-shot** | Deterministic academic templates tuned for detector pass rates |
+| **Lexicon service** | 370k-word dictionary + medicine / veterinary / engineering terms |
+| **Pattern analyzer** | 36+ academic AI-tell regex patterns |
+| **Stylometrics** | Burstiness, opener diversity, parallel clause templates |
+| **Fidelity validator** | Blocks rewrites that drop numbers, citations, or length |
+
+Default engine: **`one_shot = true`** — single deterministic pass, no multi-pass drift.
+
+---
+
+## Install
+
+### Windows (easiest)
+
+```powershell
+.\humanize.ps1 examples\demo_manuscript.md
+```
+
+### Manual
+
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -e ".[full]"
+mh models download          # ONNX model ~120 MB, one-time
+```
+
+### Optional LLM engine
+
+```bash
+pip install -e ".[llm]"
+export OPENAI_API_KEY=sk-...
+```
 
 ```toml
-[llm]
-provider = "deepseek"
-model = "deepseek-chat"
-temperature = 0.9
-
+# config.toml
 [pipeline]
-target_ai_score = 15.0
-max_iterations = 5
+engine = "llm"
+one_shot = false
 ```
+
+---
 
 ## CLI
 
-```bash
-mh score -f manuscript.txt          # analyze only
-mh humanize -f manuscript.txt -o out.txt
-mh humanize --target 10 --iterations 7 -f draft.txt
-echo "text" | mh score
-```
+| Command | What it does |
+|---------|--------------|
+| `mh paper.md` | Humanize → `paper_humanized.md` |
+| `mh humanize draft.txt -o out.txt` | Explicit output |
+| `mh score paper.md` | AI likelihood + sentence heatmap |
+| `mh models download` | Fetch ONNX detector |
 
-Exit codes: `0` = target met, `2` = finished but target not met.
+Exit codes: `0` = fidelity pass, `2` = finished with warnings.
+
+---
 
 ## Configuration
 
-See `config.example.toml` for all options:
+Copy `config.example.toml` → `config.toml` (optional; defaults work).
 
-- `target_ai_score` — stop when composite score drops below this (0–100)
-- `min_meaning_similarity` — lexical overlap floor for meaning preservation
-- `chunk_size` — split long manuscripts into chunks
-- `use_external_detector` — blend GPTZero score into composite
+```toml
+[pipeline]
+one_shot = true
+target_ai_score = 5.0
+max_passes = 1
 
-## Architecture
+[detector]
+engine = "onnx"
+calibration_offset = 8.0
+```
+
+See [docs/calibration.md](docs/calibration.md) for manual ZeroGPT verification workflow.
+
+---
+
+## Project layout
 
 ```
 src/humanizer/
-├── analyzers/
-│   ├── patterns.py      # AI-tell pattern matching
-│   ├── statistics.py    # Burstiness / repetition metrics
-│   ├── detector.py      # Composite scoring
-│   └── external.py      # GPTZero API integration
-├── validators/
-│   └── fidelity.py      # Number/citation/meaning checks
-├── rewriters/
-│   └── llm_rewriter.py  # OpenAI-compatible LLM calls
-├── prompts/
-│   └── academic.py      # Academic rewrite system prompt
-├── pipeline.py          # Iterative orchestration
-└── cli.py               # Command-line interface
+├── analyzers/          # patterns, stylometrics, ONNX segment detector, ZeroGPT proxy
+├── rewriters/          # bootstrap, transforms, targeted rewriter, lexicon swaps
+├── validators/         # number / citation / meaning fidelity
+├── lexicon/            # domain-safe term protection
+├── templates/          # calibrated academic rewrite rules (JSON)
+└── pipeline.py         # orchestration
+data/
+├── lexicons/           # WordNet, domain terms, protected academic core
+└── templates/academic/ # bootstrap + section templates
 ```
+
+---
 
 ## Testing
 
@@ -111,12 +159,23 @@ pip install -e ".[dev]"
 pytest
 ```
 
+Uses `examples/demo_manuscript.md` — a synthetic AI-draft benchmark, not a real study.
+
+---
+
 ## Honest expectations
 
-Built-in scoring is a **proxy** — it correlates with detector signals but is not Turnitin. Enable `use_external_detector = true` with a GPTZero key for tighter feedback. No tool guarantees 0% on every institutional detector; this maximizes your odds through iteration + fidelity gates.
+- Built-in score is a **proxy**. It can disagree sharply with live ZeroGPT. **Always verify externally.**
+- No tool guarantees 0% on every institutional detector.
+- Follow your university's AI disclosure policies.
+- Do not use to misrepresent authorship.
 
-Always follow your institution's AI disclosure policies.
+---
+
+## Author
+
+Built by [@drmikecrypto](https://github.com/drmikecrypto)
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).

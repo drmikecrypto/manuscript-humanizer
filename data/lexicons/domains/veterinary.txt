@@ -1,0 +1,393 @@
+# Veterinary / DVM terms
+canine
+feline
+bovine
+equine
+ovine
+porcine
+avian
+veterinary
+veterinarian
+animal
+livestock
+companion animal
+herd
+flock
+litter
+kennel
+cattery
+zoonotic
+zoonosis
+vaccination
+deworming
+spay
+neuter
+castration
+ovariohysterectomy
+anesthesia
+sedation
+restraint
+muzzle
+halter
+stall
+pasture
+forage
+ruminant
+monogastric
+cud
+hoof
+udder
+mastitis
+lameness
+colic
+bloat
+parvovirus
+distemper
+feline leukemia
+heartworm
+tick
+flea
+mange
+dermatitis
+otitis
+pyometra
+dystocia
+parturition
+gestation
+weaning
+calf
+foal
+puppy
+kitten
+chick
+broiler
+layer
+dairy
+beef
+swine
+poultry
+aquaculture
+fish
+aquatic
+wildlife
+exotic
+reptile
+amphibian
+rodent
+rabbit
+guinea pig
+hamster
+ferret
+primate
+zoo
+sanctuary
+rescue
+shelter
+anthelmintic
+antiparasitic
+antibiotic
+NSAID
+corticosteroid
+fluid therapy
+intravenous
+subcutaneous
+intramuscular
+oral
+topical
+transdermal
+bloodwork
+CBC
+chemistry panel
+urinalysis
+radiograph
+ultrasound
+endoscopy
+biopsy
+necropsy
+postmortem
+euthanasia
+quarantine
+biosecurity
+herd health
+flock health
+herd immunity
+outbreak
+endemic
+epidemic
+surveillance
+notifiable disease
+rabies
+brucellosis
+tuberculosis
+salmonella
+E. coli
+campylobacter
+leptospirosis
+Lyme disease
+anaplasmosis
+ehrlichiosis
+coccidiosis
+giardia
+cryptosporidium
+ringworm
+sarcoptes
+demodex
+nutrition
+diet
+feed
+supplement
+mineral
+vitamin
+protein
+fat
+carbohydrate
+fiber
+metabolic disorder
+obesity
+diabetes mellitus
+Cushing
+Addison
+hypothyroidism
+hyperthyroidism
+kidney disease
+liver disease
+pancreatitis
+gastritis
+enteritis
+hepatitis
+nephritis
+cystitis
+pneumonia
+bronchitis
+asthma
+allergy
+atopy
+autoimmune
+immunodeficiency
+tumor
+neoplasia
+cancer
+metastasis
+benign
+malignant
+chemotherapy
+radiation therapy
+surgery
+orthopedic
+fracture
+luxation
+arthritis
+osteoporosis
+wound
+abscess
+cellulitis
+sepsis
+shock
+dehydration
+electrolyte
+acid-base
+blood gas
+hematocrit
+albumin
+globulin
+bilirubin
+ALT
+AST
+ALP
+BUN
+creatinine
+glucose
+cholesterol
+triglyceride
+thyroid
+T4
+TSH
+cortisol
+progesterone
+estrogen
+testosterone
+progesterone
+LH
+FSH
+prolactin
+insulin
+C-peptide
+HbA1c
+ketone
+lactate
+amylase
+lipase
+CPK
+troponin
+fibrinogen
+PT
+PTT
+INR
+platelet
+WBC
+RBC
+MCV
+MCH
+MCHC
+RDW
+neutrophil
+lymphocyte
+monocyte
+eosinophil
+basophil
+band
+reticulocyte
+hemoglobin
+hematocrit
+PCV
+TP
+TS
+specific gravity
+proteinuria
+hematuria
+pyuria
+bacteriuria
+crystalluria
+cast
+sediment
+culture
+sensitivity
+MIC
+MBC
+pathogen
+commensal
+opportunistic
+virulence
+colonization
+infection
+inflammation
+immune response
+antibody
+antigen
+vaccine
+titer
+seroconversion
+challenge
+exposure
+incubation
+latency
+carrier
+shedding
+transmission
+vector
+reservoir
+host
+parasite
+predator
+prey
+habitat
+ecosystem
+conservation
+endangered
+threatened
+reintroduction
+captivity
+breeding program
+genetic diversity
+inbreeding
+lineage
+pedigree
+breed
+species
+subspecies
+genus
+taxonomy
+morphology
+anatomy
+physiology
+pathology
+pharmacology
+toxicology
+ethology
+behavior
+enrichment
+welfare
+pain
+distress
+suffering
+humane
+analgesic
+anxiolytic
+tranquilizer
+sedative
+anesthetic
+local
+regional
+general
+monitoring
+pulse oximetry
+capnography
+ECG
+blood pressure
+temperature
+respiratory rate
+heart rate
+mucous membrane
+CRT
+hydration
+body condition score
+BCS
+weight
+growth
+development
+reproduction
+fertility
+infertility
+semen
+artificial insemination
+embryo transfer
+cloning
+genetic engineering
+CRISPR
+gene therapy
+stem cell
+regenerative medicine
+biomaterial
+implant
+prosthesis
+orthosis
+rehabilitation
+physical therapy
+hydrotherapy
+laser therapy
+acupuncture
+chiropractic
+homeopathy
+herbal medicine
+integrative
+holistic
+preventive
+wellness
+screening
+early detection
+diagnosis
+differential
+prognosis
+treatment
+management
+follow-up
+recheck
+referral
+specialist
+emergency
+critical care
+ICU
+hospitalization
+outpatient
+ambulatory
+field service
+mobile clinic
+telemedicine
+record
+SOAP
+medical history
+signalment
+chief complaint
+physical exam
+assessment
+plan

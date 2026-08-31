@@ -4,9 +4,28 @@ __pycache__/
 .venv/
 venv/
 .env
+.env.*
 config.toml
 .humanizer_runs/
 .pytest_cache/
 dist/
 build/
 *.log
+
+# IDE / local agent rules (never publish)
+.cursor/
+
+# Private manuscripts & pipeline output (keep local only)
+tests/test_manuscripts/
+tests/output/
+tests/output/**
+tests/**/ablate_*.txt
+tests/**/alt_*.txt
+tests/**/e_*.txt
+tests/**/emax.txt
+
+# Secrets & credentials
+*.pem
+*.key
+credentials.json
+secrets.toml

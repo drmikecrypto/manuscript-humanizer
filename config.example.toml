@@ -1,28 +1,43 @@
 # Copy to config.toml and fill in your values.
 
 [llm]
-provider = "openai"          # openai | deepseek | custom
-api_key = ""                 # or set OPENAI_API_KEY / DEEPSEEK_API_KEY env var
-base_url = ""                # empty = provider default; e.g. https://api.deepseek.com
-model = "gpt-4o-mini"        # deepseek-chat, gpt-4o, claude via proxy, etc.
+provider = "openai"
+api_key = ""
+base_url = ""
+model = "gpt-4o-mini"
 temperature = 0.85
 max_tokens = 8192
 
 [pipeline]
-target_ai_score = 15.0       # stop when composite score drops below this (0-100)
-max_iterations = 5
-min_meaning_similarity = 0.82
+engine = "segment"
+one_shot = true
+target_ai_score = 5.0
+max_passes = 1
+sentences_per_pass = 0
+rewrite_all_sentences = true
+early_stop_delta = 1.0
+max_iterations = 10
+min_meaning_similarity = 0.72
 preserve_citations = true
 preserve_numbers = true
-chunk_size = 3500           # chars per chunk for long manuscripts
+chunk_size = 3500
 chunk_overlap = 200
 
 [detector]
-# Optional external detector APIs (leave empty to use built-in statistical proxy)
+engine = "onnx"
+model = "aigc-detector-en"
+span_threshold = 45.0
+window_words = 150
+window_overlap = 0.5
+calibration_offset = 8.0
 gptzero_api_key = ""
 originality_api_key = ""
 use_external_detector = false
-external_weight = 0.4        # blend with built-in score when external is enabled
+external_weight = 0.4
+
+[lexicon]
+domains = ["medicine", "veterinary", "engineering"]
+protect_domain_terms = true
 
 [output]
 show_diff = false

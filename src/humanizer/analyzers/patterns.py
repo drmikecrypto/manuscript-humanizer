@@ -50,6 +50,28 @@ AI_PATTERNS: list[tuple[str, str, int, str]] = [
     ("P22", "academic", 2, r"\b(our (?:proposed )?method|the proposed (?:method|approach|framework))\b"),
     ("P23", "filler", 3, r"\b(it is clear that|needless to say|as a matter of fact)\b"),
     ("P24", "filler", 3, r"\b(in order to)\b"),
+    # Academic manuscript tells (ZeroGPT-aligned)
+    ("P25", "academic", 1, r"\bthis study suggests\b"),
+    ("P26", "academic", 1, r"\bthe results indicate\b"),
+    ("P27", "academic", 1, r"\bclinical studies on humans are necessary\b"),
+    ("P28", "academic", 1, r"\bsuch studies could help scientists and physicians\b"),
+    ("P29", "academic", 1, r"\bwere induced with diabetes\b"),
+    ("P30", "academic", 2, r"\b(reducing|lowering).{0,40}(increasing|raising).{0,40}(decreasing|lowering)\b"),
+    ("P31", "academic", 2, r"\bcharacterized by impaired glucose metabolism\b"),
+    ("P32", "academic", 2, r"\bdevelop the best therapeutic strategies\b"),
+    ("P33", "academic", 1, r"\bwere performed at various stages\b"),
+    ("P34", "academic", 1, r"\bcan effectively reduce\b"),
+    ("P35", "academic", 1, r"\bcomparable to the (?:commonly|usually|often) used\b"),
+    ("P36", "academic", 1, r"\bmay serve as complementary\b"),
+    ("P37", "academic", 1, r"\b(besides|also|further), the efficacy of these\b"),
+    ("P38", "academic", 1, r"\bwere allocated to \d+ groups\b"),
+    ("P39", "academic", 1, r"\breceived physiological serum for 2 weeks\b"),
+    ("P40", "academic", 1, r"\bwere (?:done|performed) at (?:multiple|different|several|various) stages\b"),
+    ("P41", "academic", 2, r"\bmeasurements of blood glucose, insulin levels\b"),
+    ("P42", "academic", 1, r"\b(chiefly|primarily) divided into two main types\b"),
+    ("P43", "academic", 2, r"\bdescribed by impaired glucose metabolism\b"),
+    ("P44", "academic", 1, r"\bthe results (?:indicated|suggested) that nettle\b"),
+    ("P45", "academic", 1, r"\bcandidate adjunct options herbal\b"),
 ]
 
 _COMPILED = [(pid, cat, sev, re.compile(pat, re.IGNORECASE)) for pid, cat, sev, pat in AI_PATTERNS]

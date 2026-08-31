@@ -1,0 +1,181 @@
+{
+  "category": "human_voice",
+  "rules": [
+    {
+      "pattern": "Diabetes mellitus is a common endocrine-metabolic disease\\. It affects glucose metabolism and causes several metabolic and anabolic disturbances",
+      "replacement": "Diabetes is a common endocrine-metabolic disorder that disrupts glucose metabolism and causes metabolic and anabolic disturbances"
+    },
+    {
+      "pattern": "Diabetes mellitus is one of the most common metabolic and endocrine disorders, characterized by impaired glucose metabolism and various anabolic and metabolic abnormalities",
+      "replacement": "Diabetes mellitus is a common metabolic-endocrine disorder marked by impaired glucose metabolism and anabolic and metabolic abnormalities"
+    },
+    {
+      "pattern": "This disease is primarily divided into two main types: Type 1 diabetes, which is insulin-dependent, and Type 2 diabetes, which is non-insulin-dependent\\. Type 2 diabetes requires continuous care and regular treatments, as it may lead to serious complications such as hyperglycemia, ketosis, hyperosmolar shock, coma, cardiovascular diseases, arteriosclerosis, ocular conditions, renal and neurological diseases, severe infections, and even death",
+      "replacement": "This disease is mainly split into Type 1 (insulin-dependent) and Type 2 (non-insulin-dependent) forms. Type 2 diabetes requires ongoing care; complications may include hyperglycemia, ketosis, hyperosmolar shock, coma, cardiovascular disease, arteriosclerosis, ocular, renal, and neurological disease, severe infections, and death"
+    },
+    {
+      "pattern": "Type 2 diabetes needs ongoing care\\. Complications include hyperglycemia, ketosis, cardiovascular and renal disease, severe infections, and death",
+      "replacement": "Type 2 diabetes requires ongoing care; complications may include hyperglycemia, ketosis, hyperosmolar shock, coma, cardiovascular disease, arteriosclerosis, ocular, renal, and neurological disease, severe infections, and death"
+    },
+    {
+      "pattern": "In this study, male Wistar rats weighing 190-210 grams were randomly divided into 8 groups",
+      "replacement": "In this study, we randomised male Wistar rats (190-210 g) into 8 groups"
+    },
+    {
+      "pattern": "The results (?:indicated|suggested|implied) that nettle and fenugreek (?:extracts|preparations|treatments), both individually and in combination, were (?:effective|useful) in reducing blood glucose levels, increasing insulin levels, and decreasing body weight in diabetic rats",
+      "replacement": "In diabetic rats, nettle and fenugreek extracts reduced blood glucose levels and body weight; insulin levels increased with individual or combined treatment"
+    },
+    {
+      "pattern": "(?:Besides|Also), the efficacy of these (?:extracts|treatments|formulations|preparations) was comparable to the (?:commonly|usually|often|typically) used diabetes drug, glibenclamide",
+      "replacement": "The efficacy of these extracts was broadly similar to glibenclamide, a standard diabetes drug"
+    },
+    {
+      "pattern": "This study suggests that nettle and fenugreek extracts are candidate adjunct options herbal medicines in the treatment of diabetes",
+      "replacement": "Nettle and fenugreek extracts may serve as complementary herbal medicines in diabetes treatment"
+    },
+    {
+      "pattern": "We observed that these extracts can effectively reduce blood glucose levels and increase insulin levels while also reducing body weight",
+      "replacement": "In treated rats, these extracts reduced blood glucose, increased insulin, and lowered body weight"
+    },
+    {
+      "pattern": "Animals in group 1 \\(control\\) received no intervention",
+      "replacement": "Group 1 (control) had no intervention"
+    },
+    {
+      "pattern": "Group 1 \\(control\\) received no treatment",
+      "replacement": "Group 1 (control) had no intervention"
+    },
+    {
+      "pattern": "Groups 3-6 shared the 2-week run-in and streptozotocin diabetes induction\\. Over 6 weeks they received nettle extract, fenugreek extract, or both extracts, respectively",
+      "replacement": "Groups 3-6 had a 2-week run-in, STZ-induced diabetes, then 6 weeks of nettle, fenugreek, or combined extract"
+    },
+    {
+      "pattern": "Groups 3 to 6 received physiological serum for 2 weeks, were induced with diabetes, and then treated with nettle extract, fenugreek extract, and a combination of both extracts, respectively, for 6 weeks",
+      "replacement": "For groups 3-6, we used a 2-week run-in, STZ to induce diabetes, then 6 weeks of nettle extract, fenugreek extract, or both extracts, respectively"
+    },
+    {
+      "pattern": "Measurements of blood glucose, insulin levels, and body weight were performed at various stages: before diabetes induction, 2-3 days after diabetes induction, 2 weeks after the start of treatment, and 6 weeks after diabetes induction",
+      "replacement": "We measured blood glucose, insulin, and body weight at baseline, 2-3 days post-STZ, after 2 weeks of treatment, and at 6 weeks"
+    },
+    {
+      "pattern": "Blood glucose, insulin, and body weight were recorded at baseline, 2-3 days post-streptozotocin, after 2 weeks of therapy, and at 6 weeks",
+      "replacement": "We measured blood glucose, insulin, and body weight at baseline, 2-3 days post-STZ, after 2 weeks of treatment, and at 6 weeks"
+    },
+    {
+      "pattern": "In diabetic rats, nettle and fenugreek lowered glucose and body mass while insulin increased",
+      "replacement": "Nettle and fenugreek (alone or together) cut glucose and body weight and raised insulin in diabetic rats"
+    },
+    {
+      "pattern": "In diabetic rats, nettle and fenugreek extracts \\(alone or combined\\) lowered glucose and body mass with a concurrent rise in insulin",
+      "replacement": "Nettle and fenugreek (alone or together) cut glucose and body weight and raised insulin in diabetic rats"
+    },
+    {
+      "pattern": "The results indicated that nettle and fenugreek extracts, both individually and in combination, were effective in reducing blood glucose levels, increasing insulin levels, and decreasing body weight in diabetic rats",
+      "replacement": "In diabetic rats, nettle and fenugreek extracts lowered blood glucose and body weight; insulin levels rose, alone or in combination"
+    },
+    {
+      "pattern": "Glibenclamide, a standard diabetes drug, gave a broadly similar response",
+      "replacement": "Responses were broadly similar to glibenclamide"
+    },
+    {
+      "pattern": "This study suggests that nettle and fenugreek extracts could be considered as complementary herbal medicines in the treatment of diabetes",
+      "replacement": "Nettle and fenugreek extracts may serve as complementary herbal medicines in diabetes treatment"
+    },
+    {
+      "pattern": "This study suggests that nettle and fenugreek extracts are candidate adjunct options herbal medicines in the treatment of diabetes",
+      "replacement": "Nettle and fenugreek extracts may serve as complementary herbal medicines in diabetes treatment"
+    },
+    {
+      "pattern": "Group 2 \\(diabetic control\\) received physiological serum for 2 weeks and then were induced with diabetes using streptozotocin, followed by an additional 6 weeks of physiological serum",
+      "replacement": "Group 2 (diabetic control) had a 2-week physiological serum period, streptozotocin diabetes induction, then 6 weeks of vehicle"
+    },
+    {
+      "pattern": "In this study, male Wistar rats weighing 190-210 grams were randomly divided into 8 groups\\. Group 1 \\(control\\) received no treatment",
+      "replacement": "We randomised 8 groups of male Wistar rats (190-210 g). Group 1 (control) had no intervention"
+    },
+    {
+      "pattern": "In treated rats, glucose fell and insulin rose; body weight also dropped",
+      "replacement": "In treated rats, glucose dropped while insulin rose; body weight also fell"
+    },
+    {
+      "pattern": "The results indicate that these extracts can effectively reduce blood glucose levels and increase insulin levels while also reducing body weight",
+      "replacement": "In treated rats, these extracts reduced blood glucose, increased insulin, and lowered body weight"
+    },
+    {
+      "pattern": "Patient trials are still needed to confirm the effect and set a dose",
+      "replacement": "Human trials are still needed to confirm dose and effect"
+    },
+    {
+      "pattern": "However, to confirm these findings and determine the appropriate dosage, clinical studies on humans are necessary",
+      "replacement": "Clinical studies in patients are still needed to confirm these findings and set an appropriate dose"
+    },
+    {
+      "pattern": "Such studies could help scientists and physicians develop the best therapeutic strategies for diabetes management and improve the quality of life for diabetic patients",
+      "replacement": "Such work could help clinicians refine diabetes management and improve quality of life for diabetic patients"
+    },
+    {
+      "pattern": "This disease is split into two main types: Type 1 diabetes, which is insulin-dependent, and Type 2 diabetes, which is non-insulin-dependent\\. Type 2 diabetes needs ongoing care\\. Complications include hyperglycemia, ketosis, cardiovascular and renal disease, severe infections, and death",
+      "replacement": "This disease is split into two main types: Type 1 diabetes, which is insulin-dependent, and Type 2 diabetes, which is non-insulin-dependent and needs ongoing care to prevent hyperglycemia, ketosis, cardiovascular and renal disease, severe infections, and death"
+    },
+    {
+      "pattern": "Male Wistar rats \\(190-210 g\\) were allocated to 8 groups",
+      "replacement": "We randomised 8 groups of male Wistar rats (190-210 g)"
+    },
+    {
+      "pattern": "Groups 3 to 6 received physiological serum for 2 weeks, were induced with diabetes, and then treated with nettle extract, fenugreek extract, and a combination of both treatments, respectively, for 6 weeks",
+      "replacement": "For groups 3-6, we used a 2-week run-in, STZ to induce diabetes, then 6 weeks of nettle, fenugreek, or both"
+    },
+    {
+      "pattern": "Also, the efficacy of these extracts was comparable to the commonly used diabetes drug, glibenclamide",
+      "replacement": "The response was broadly similar to glibenclamide, a standard diabetes drug"
+    },
+    {
+      "pattern": "Also, the efficacy of these treatments was comparable to the often used diabetes drug, glibenclamide",
+      "replacement": "Effects matched those seen with glibenclamide"
+    },
+    {
+      "pattern": "Glibenclamide, a standard diabetes drug, gave a broadly similar response",
+      "replacement": "Effects matched those seen with glibenclamide"
+    },
+    {
+      "pattern": "Glibenclamide responses were broadly similar",
+      "replacement": "Effects matched those seen with glibenclamide"
+    },
+    {
+      "pattern": "Measurements of blood glucose, insulin levels, and body weight were done at multiple stages: before diabetes induction, 2-3 days after diabetes induction, 2 weeks after the start of treatment, and 6 weeks after diabetes induction",
+      "replacement": "We tracked glucose, insulin, and body weight before induction, 2-3 days after STZ, at 2 weeks of treatment, and at 6 weeks"
+    },
+    {
+      "pattern": "Groups 3 to 6 received physiological serum for 2 weeks, were induced with diabetes, and then treated with nettle extract, fenugreek extract, and a combination of both preparations, respectively, for 6 weeks",
+      "replacement": "Groups 3-6 had a 2-week run-in, STZ-induced diabetes, then 6 weeks of nettle, fenugreek, or combined extract"
+    },
+    {
+      "pattern": "Additionally, the efficacy of these extracts was comparable to the commonly used diabetes drug, glibenclamide",
+      "replacement": "The response was broadly similar to glibenclamide, a standard diabetes drug"
+    },
+    {
+      "pattern": "In treated rats, glucose dropped while insulin rose; body weight also fell",
+      "replacement": "Treated rats had lower glucose and body weight and higher insulin"
+    },
+    {
+      "pattern": "Such studies could help investigators and doctors build the best therapeutic plans for diabetes management and improve the quality of life for diabetic people",
+      "replacement": "Such work could help clinicians improve diabetes care and patient quality of life"
+    },
+    {
+      "pattern": "This disease is mainly divided into two main types: Type 1 diabetes, which is insulin-dependent, and Type 2 diabetes, which is non-insulin-dependent\\. Type 2 diabetes needs ongoing care\\. Complications include hyperglycemia, ketosis, cardiovascular and renal disease, severe infections, and death",
+      "replacement": "This disease is split into two main types: Type 1 diabetes, which is insulin-dependent, and Type 2 diabetes, which is non-insulin-dependent and needs ongoing care to prevent hyperglycemia, ketosis, cardiovascular and renal disease, severe infections, and death"
+    },
+    {
+      "pattern": "Groups 3 to 6 received physiological serum for 2 weeks, were induced with diabetes, and then treated with nettle extract, fenugreek extract, and a combination of both preparations, respectively, for 6 weeks",
+      "replacement": "Groups 3-6 had a 2-week run-in, STZ-induced diabetes, then 6 weeks of nettle, fenugreek, or combined extract"
+    },
+    {
+      "pattern": "Such studies could help scientists and physicians develop the best therapeutic plans for diabetes management and improve the quality of life for diabetic patients",
+      "replacement": "Such work could help clinicians improve diabetes care and patient quality of life"
+    },
+    {
+      "pattern": "Measurements of blood glucose, insulin levels, and body weight were done at different stages: before diabetes induction, 2-3 days after diabetes induction, 2 weeks after the start of treatment, and 6 weeks after diabetes induction",
+      "replacement": "Glucose, insulin, and body weight were tracked at baseline, 2-3 days post-STZ, after 2 weeks on treatment, and at 6 weeks"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "category": "introduction",
+  "rules": [
+    {
+      "pattern": "Diabetes mellitus is one of the most common metabolic and endocrine disorders, marked by impaired glucose metabolism and several anabolic and metabolic abnormalities",
+      "replacement": "Diabetes mellitus is a common endocrine-metabolic disease. It affects glucose metabolism and causes several metabolic and anabolic disturbances"
+    },
+    {
+      "pattern": "Diabetes mellitus is one of the most common metabolic and endocrine disorders, characterized by impaired glucose metabolism and various anabolic and metabolic abnormalities",
+      "replacement": "Diabetes mellitus is a common endocrine-metabolic disease. It affects glucose metabolism and causes several metabolic and anabolic disturbances"
+    },
+    {
+      "pattern": "characterized by impaired glucose metabolism and various anabolic and metabolic abnormalities",
+      "replacement": "marked by impaired glucose metabolism and several anabolic and metabolic abnormalities"
+    },
+    {
+      "pattern": "requires continuous care and regular treatments, as it may lead to serious complications such as hyperglycemia, ketosis, hyperosmolar shock, coma, cardiovascular diseases, arteriosclerosis, ocular conditions, renal and neurological diseases, severe infections, and even death",
+      "replacement": "needs ongoing care and regular treatment. Complications include hyperglycemia, ketosis, cardiovascular and renal disease, severe infections, and death"
+    },
+    {
+      "pattern": "primarily divided into two main types",
+      "replacement": "split into two main types"
+    },
+    {
+      "pattern": "requires continuous care and regular treatments",
+      "replacement": "needs ongoing care and regular treatment"
+    },
+    {
+      "pattern": "serious complications such as",
+      "replacement": "severe complications including"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+# MeSH-style medical terms (subset, public domain descriptors)
+diabetes
+diabetes mellitus
+hyperglycemia
+hypoglycemia
+insulin
+streptozotocin
+glibenclamide
+metabolic
+endocrine
+glucose
+glycemic
+ketosis
+hyperosmolar
+cardiovascular
+arteriosclerosis
+renal
+neurological
+hyperglycemic
+diabetic
+rats
+wistar
+serum
+vehicle
+induction
+extract
+nettle
+fenugreek
+herbal
+complementary
+therapeutic
+clinical
+dosage
+physiological
+blood
+body weight
+body mass
+glycemic control
+treatment
+therapy
+medication
+drug
+pharmacological
+biochemical
+histological
+pathological
+symptom
+diagnosis
+prognosis
+complication
+mortality
+morbidity
+efficacy
+placebo
+randomized
+cohort
+longitudinal
+cross-sectional
+in vitro
+in vivo
+placebo-controlled
+double-blind
+single-blind
+adverse
+contraindication
+pharmacokinetics
+pharmacodynamics
+bioavailability
+metabolism
+hepatic
+renal function
+creatinine
+hemoglobin
+hematocrit
+leukocyte
+platelet
+inflammation
+cytokine
+antibody
+antigen
+immunology
+oncology
+cardiology
+nephrology
+endocrinology
+gastroenterology
+pulmonology
+dermatology
+rheumatology
+hematology
+infectious disease
+antibiotic
+antiviral
+antifungal
+vaccine
+immunization
+epidemiology
+prevalence
+incidence
+mortality rate
+survival
+remission
+relapse
+prognostic
+biomarker
+genomic
+proteomic
+transcriptomic
+microarray
+sequencing
+polymerase chain reaction
+western blot
+enzyme-linked immunosorbent assay
+chromatography
+spectroscopy
+microscopy
+histopathology
+cytopathology
+autopsy
+biopsy
+resection
+anesthesia
+analgesia
+sedation
+intubation
+ventilation
+hemodynamic
+perfusion
+ischemia
+infarction
+thrombosis
+embolism
+hemorrhage
+edema
+necrosis
+apoptosis
+proliferation
+differentiation
+metastasis
+carcinoma
+sarcoma
+lymphoma
+leukemia
+melanoma
+adenocarcinoma

@@ -1,0 +1,389 @@
+# Tokens and patterns that must never be altered by paraphrase
+doi
+fig
+figure
+table
+eq
+equation
+ref
+cite
+citation
+section
+abstract
+introduction
+methods
+results
+discussion
+conclusion
+acknowledgment
+appendix
+supplementary
+p-value
+p value
+CI
+confidence interval
+SD
+SEM
+SE
+n=
+N=
+mg
+kg
+g
+ml
+mL
+L
+mm
+cm
+m
+μm
+nm
+°C
+°f
+percent
+%
+±
+vs
+versus
+et al
+ibid
+supra
+infra
+i.e.
+e.g.
+cf.
+etc.
+vol
+pp
+ed
+eds
+ISBN
+ISSN
+PMID
+PMCID
+ORCID
+RCT
+IRB
+FDA
+EMA
+WHO
+NIH
+NLM
+MeSH
+ICD
+SNOMED
+LOINC
+RxNorm
+UMLS
+HPLC
+GC-MS
+LC-MS
+NMR
+PCR
+ELISA
+Western blot
+RT-PCR
+qPCR
+ANOVA
+t-test
+chi-square
+Mann-Whitney
+Wilcoxon
+Spearman
+Pearson
+regression
+R²
+AUC
+ROC
+HR
+OR
+RR
+CI95
+IQR
+median
+mean
+mode
+range
+quartile
+decile
+percentile
+baseline
+follow-up
+endpoint
+primary outcome
+secondary outcome
+inclusion criteria
+exclusion criteria
+randomization
+blinding
+placebo
+control group
+intervention group
+crossover
+parallel
+factorial
+adaptive
+non-inferiority
+superiority
+intention-to-treat
+per-protocol
+ITT
+PP
+LOCF
+MMRM
+GEE
+Cox
+Kaplan-Meier
+log-rank
+hazard ratio
+odds ratio
+relative risk
+absolute risk
+NNT
+NNH
+ARR
+RRI
+ARI
+calibration
+validation
+sensitivity
+specificity
+PPV
+NPV
+LR+
+LR-
+cutoff
+threshold
+gold standard
+reference standard
+ground truth
+benchmark
+meta-analysis
+systematic review
+PRISMA
+CONSORT
+STROBE
+ARRIVE
+STARD
+QUADAS
+GRADE
+Cochrane
+PubMed
+Scopus
+Web of Science
+Google Scholar
+CrossRef
+ORCID
+DOI
+ISBN
+ISSN
+PMID
+PMCID
+arXiv
+bioRxiv
+medRxiv
+preprint
+peer-reviewed
+open access
+Creative Commons
+copyright
+license
+ethics
+consent
+assent
+HIPAA
+GDPR
+de-identified
+anonymized
+pseudonymized
+IRB-approved
+clinical trial
+NCT
+ClinicalTrials.gov
+EudraCT
+ISRCTN
+prospective
+retrospective
+observational
+experimental
+quasi-experimental
+longitudinal
+cross-sectional
+case-control
+cohort
+nested case-control
+case series
+case report
+pilot
+feasibility
+phase I
+phase II
+phase III
+phase IV
+post-marketing
+surveillance
+pharmacovigilance
+adverse event
+SAE
+AE
+ADR
+MedDRA
+CTCAE
+RECIST
+iRECIST
+mRECIST
+Lugano
+RANO
+mWHO
+BCLC
+Child-Pugh
+MELD
+Glasgow
+APACHE
+SOFA
+qSOFA
+NEWS
+MEWS
+SAPS
+TISS
+CPIS
+VAP
+CLABSI
+CAUTI
+SSI
+HAI
+MRSA
+VRE
+ESBL
+CRE
+CDI
+C. diff
+C diff
+ESBL
+KPC
+NDM
+OXA
+mcr
+AMR
+antimicrobial stewardship
+antibiotic stewardship
+hand hygiene
+contact precautions
+droplet precautions
+airborne precautions
+standard precautions
+PPE
+N95
+surgical mask
+face shield
+gown
+gloves
+isolation
+quarantine
+lockdown
+social distancing
+contact tracing
+outbreak
+cluster
+epidemic
+pandemic
+endemic
+herd immunity
+R0
+Rt
+incidence
+prevalence
+mortality
+morbidity
+DALY
+QALY
+YLL
+YLD
+burden of disease
+health economics
+cost-effectiveness
+ICER
+WTP
+BCR
+NPV
+budget impact
+markov
+decision tree
+monte carlo
+bootstrap
+sensitivity analysis
+scenario analysis
+tornado diagram
+spider diagram
+heatmap
+forest plot
+funnel plot
+Egger
+Begg
+trim-and-fill
+leave-one-out
+subgroup analysis
+interaction
+effect modification
+confounding
+bias
+selection bias
+information bias
+recall bias
+reporting bias
+publication bias
+attrition bias
+performance bias
+detection bias
+allocation concealment
+sequence generation
+blinding
+incomplete outcome data
+selective reporting
+other bias
+risk of bias
+RoB 2
+ROBINS-I
+Newcastle-Ottawa
+Jadad
+Cochrane
+AMSTAR
+RAMESES
+ENTREQ
+CASP
+CCEMG
+EPPI
+Campbell
+Joanna Briggs
+scoping review
+rapid review
+umbrella review
+overview
+living review
+evidence map
+gap map
+knowledge translation
+implementation science
+dissemination
+knowledge mobilization
+stakeholder
+patient-oriented
+community-based
+participatory
+co-design
+co-production
+delphi
+nominal group
+consensus
+guideline
+recommendation
+strong recommendation
+conditional recommendation
+good practice statement
+evidence certainty
+evidence quality
+GRADE certainty
+high certainty
+moderate certainty
+low certainty
+very low certainty

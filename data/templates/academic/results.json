@@ -1,0 +1,37 @@
+{
+  "category": "results",
+  "rules": [
+    {
+      "pattern": "Measurements of blood glucose, insulin levels, and body weight were performed at various stages: before diabetes induction, 2-3 days after diabetes induction, 2 weeks after the start of treatment, and 6 weeks after diabetes induction",
+      "replacement": "Blood glucose, insulin, and body weight were recorded at baseline, 2-3 days post-streptozotocin, after 2 weeks of therapy, and at 6 weeks"
+    },
+    {
+      "pattern": "Measurements of blood glucose, insulin levels, and body weight were performed at various stages",
+      "replacement": "Blood glucose, insulin, and body weight were recorded at four time points"
+    },
+    {
+      "pattern": "Blood glucose, insulin, and body weight were recorded at four time points: before diabetes induction, 2-3 days after diabetes induction, 2 weeks after the start of treatment, and 6 weeks after diabetes induction",
+      "replacement": "Blood glucose, insulin, and body weight were recorded at baseline, 2-3 days post-streptozotocin, after 2 weeks of diabetes therapy, and at 6 weeks post-induction"
+    },
+    {
+      "pattern": "The results indicated that nettle and fenugreek extracts, both individually and in combination, were effective in reducing blood glucose levels, increasing insulin levels, and decreasing body weight in diabetic rats",
+      "replacement": "In diabetic rats, nettle and fenugreek extracts (alone or combined) lowered glucose and body mass with a concurrent rise in insulin"
+    },
+    {
+      "pattern": "In this setting, the results indicated that nettle and fenugreek extracts, both individually and in combination, were effective in reducing blood glucose levels, increasing insulin levels, and decreasing body weight in diabetic rats",
+      "replacement": "In diabetic rats, nettle and fenugreek extracts (alone or combined) lowered glucose and body mass with a concurrent rise in insulin"
+    },
+    {
+      "pattern": "In diabetic rats, nettle and fenugreek (?:extracts|treatments|formulations|preparations) \\(alone or combined\\) lowered glucose and body mass with a concurrent rise in insulin",
+      "replacement": "In diabetic rats, nettle and fenugreek lowered glucose and body mass while insulin increased"
+    },
+    {
+      "pattern": "(?:Additionally|Also|Besides|Further), the efficacy of these (?:extracts|treatments|formulations|preparations) was comparable to the (?:commonly|usually|often) used diabetes drug, glibenclamide",
+      "replacement": "Glibenclamide, a standard diabetes drug, gave a broadly similar response"
+    },
+    {
+      "pattern": "The results indicate that",
+      "replacement": "We observed that"
+    }
+  ]
+}

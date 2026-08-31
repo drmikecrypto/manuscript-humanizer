@@ -25,21 +25,39 @@ class LLMConfig:
 
 @dataclass
 class PipelineConfig:
-    target_ai_score: float = 15.0
-    max_iterations: int = 5
-    min_meaning_similarity: float = 0.82
+    engine: str = "segment"  # segment | local | llm
+    target_ai_score: float = 20.0
+    max_iterations: int = 15  # legacy local engine
+    max_passes: int = 20
+    sentences_per_pass: int = 0  # 0 = all hot sentences
+    rewrite_all_sentences: bool = True
+    early_stop_delta: float = 1.0
+    min_meaning_similarity: float = 0.72
     preserve_citations: bool = True
     preserve_numbers: bool = True
     chunk_size: int = 3500
     chunk_overlap: int = 200
+    one_shot: bool = True
 
 
 @dataclass
 class DetectorConfig:
+    engine: str = "onnx"  # onnx | legacy
+    model: str = "aigc-detector-en"
+    span_threshold: float = 45.0
+    window_words: int = 150
+    window_overlap: float = 0.5
+    calibration_offset: float = 8.0
     gptzero_api_key: str = ""
     originality_api_key: str = ""
     use_external_detector: bool = False
     external_weight: float = 0.4
+
+
+@dataclass
+class LexiconConfig:
+    domains: list[str] = field(default_factory=lambda: ["medicine", "veterinary", "engineering"])
+    protect_domain_terms: bool = True
 
 
 @dataclass
@@ -54,6 +72,7 @@ class AppConfig:
     llm: LLMConfig = field(default_factory=LLMConfig)
     pipeline: PipelineConfig = field(default_factory=PipelineConfig)
     detector: DetectorConfig = field(default_factory=DetectorConfig)
+    lexicon: LexiconConfig = field(default_factory=LexiconConfig)
     output: OutputConfig = field(default_factory=OutputConfig)
 
     @classmethod
@@ -78,6 +97,10 @@ class AppConfig:
         if det := data.get("detector"):
             cfg.detector = DetectorConfig(
                 **{k: det[k] for k in DetectorConfig.__dataclass_fields__ if k in det}
+            )
+        if lex := data.get("lexicon"):
+            cfg.lexicon = LexiconConfig(
+                **{k: lex[k] for k in LexiconConfig.__dataclass_fields__ if k in lex}
             )
         if out := data.get("output"):
             cfg.output = OutputConfig(**{k: out[k] for k in OutputConfig.__dataclass_fields__ if k in out})
@@ -110,6 +133,7 @@ class AppConfig:
             "llm": self.llm.__dict__,
             "pipeline": self.pipeline.__dict__,
             "detector": self.detector.__dict__,
+            "lexicon": self.lexicon.__dict__,
             "output": self.output.__dict__,
         }
         path.write_bytes(tomli_w.dumps(data))

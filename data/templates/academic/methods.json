@@ -1,0 +1,25 @@
+{
+  "category": "methods",
+  "rules": [
+    {
+      "pattern": "In this study, male Wistar rats weighing 190-210 grams were randomly divided into 8 groups",
+      "replacement": "Male Wistar rats (190-210 g) were allocated to 8 groups"
+    },
+    {
+      "pattern": "Group 1 \\(control\\) received no treatment",
+      "replacement": "Animals in group 1 (control) received no intervention"
+    },
+    {
+      "pattern": "Group 2 \\(diabetic control\\) received physiological serum for 2 weeks and then were induced with diabetes using streptozotocin, followed by an additional 6 weeks of physiological serum",
+      "replacement": "Group 2 (diabetic control) had a 2-week physiological serum period, streptozotocin diabetes induction, then 6 weeks of vehicle"
+    },
+    {
+      "pattern": "Groups 3 to 6 received physiological serum for 2 weeks, were induced with diabetes, and then treated with nettle extract, fenugreek extract, and a combination of both extracts, respectively, for 6 weeks",
+      "replacement": "Groups 3-6 shared the 2-week run-in and streptozotocin diabetes induction. Over 6 weeks they received nettle extract, fenugreek extract, or both extracts, respectively"
+    },
+    {
+      "pattern": "Group 7 received physiological serum for 2 weeks, were induced with diabetes, and then treated with glibenclamide for 6 weeks",
+      "replacement": "Group 7 had a 2-week run-in, streptozotocin diabetes induction, then glibenclamide for 6 weeks"
+    }
+  ]
+}

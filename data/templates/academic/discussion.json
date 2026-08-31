@@ -1,0 +1,45 @@
+{
+  "category": "discussion",
+  "rules": [
+    {
+      "pattern": "This study suggests that nettle and fenugreek (?:extracts|treatments|formulations|preparations) (?:could be considered as|may serve as) complementary herbal medicines in the treatment of diabetes",
+      "replacement": "Nettle and fenugreek are candidate adjuncts in diabetes care"
+    },
+    {
+      "pattern": "This study suggests that nettle and fenugreek extracts could be considered as complementary herbal medicines in the treatment of diabetes",
+      "replacement": "Nettle and fenugreek are candidate adjuncts in diabetes care"
+    },
+    {
+      "pattern": "Nettle and fenugreek may serve as complementary herbal agents in diabetes care",
+      "replacement": "Nettle and fenugreek are candidate adjuncts in diabetes care"
+    },
+    {
+      "pattern": "The results (?:indicate|imply|show) that these (?:extracts|treatments|formulations|preparations) can effectively reduce blood glucose levels and increase insulin levels while also reducing body weight",
+      "replacement": "In treated rats, glucose fell and insulin rose; body weight also dropped"
+    },
+    {
+      "pattern": "We observed that these (?:extracts|treatments|formulations|preparations) can effectively reduce blood glucose levels and increase insulin levels while also reducing body weight",
+      "replacement": "In treated rats, glucose fell and insulin rose; body weight also dropped"
+    },
+    {
+      "pattern": "However, to confirm these findings and determine the appropriate dosage, clinical studies on humans are necessary",
+      "replacement": "Patient trials are still needed to confirm the effect and set a dose"
+    },
+    {
+      "pattern": "Still, to confirm these findings and determine dosage, clinical trials in patients are necessary",
+      "replacement": "Patient trials are still needed to confirm the effect and set a dose"
+    },
+    {
+      "pattern": "Still, to (?:confirm|verify|establish) these (?:findings|observations) and determine (?:the appropriate )?dosage, clinical (?:trials|studies) in (?:patients|individuals|subjects) are (?:necessary|needed|essential)",
+      "replacement": "Still, to confirm these findings and determine dosage, clinical trials in patients are necessary"
+    },
+    {
+      "pattern": "Such studies could help (?:scientists and physicians|clinicians|practitioners and researchers)(?: develop the best therapeutic strategies for diabetes management and| refine diabetes treatment (?:strategies|approaches) and) improve quality of life for diabetic (?:patients|individuals|subjects|people)",
+      "replacement": "Such studies could help clinicians refine diabetes care and improve quality of life for diabetic patients"
+    },
+    {
+      "pattern": "could be considered as complementary",
+      "replacement": "are candidate adjunct options"
+    }
+  ]
+}

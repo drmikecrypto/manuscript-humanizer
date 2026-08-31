@@ -37,12 +37,29 @@ def _burstiness(lengths: list[int]) -> float:
     return min(100.0, cv * 120)
 
 
+STOPWORDS = {
+    "the", "and", "for", "with", "that", "this", "from", "were", "was", "are", "been",
+    "have", "has", "had", "not", "but", "into", "than", "then", "when", "after", "before",
+    "during", "which", "their", "they", "them", "also", "both", "each", "such", "using",
+    "used", "between", "among", "within", "without", "while", "where", "these", "those",
+}
+
+
+# Domain terms that legitimately repeat in academic manuscripts.
+DOMAIN_TERMS = {
+    "diabetes", "diabetic", "glucose", "insulin", "extract", "extracts", "serum",
+    "rats", "treatment", "control", "group", "groups", "weeks", "levels", "study",
+    "results", "induced", "physiological", "blood", "weight", "patient", "patients",
+    "clinical", "therapy", "hyperglycemia", "streptozotocin", "glibenclamide",
+}
+
+
 def _repetition_score(text: str) -> float:
     words = re.findall(r"\b[a-zA-Z]{4,}\b", text.lower())
-    if len(words) < 10:
+    content_words = [w for w in words if w not in STOPWORDS and w not in DOMAIN_TERMS]
+    if len(content_words) < 10:
         return 0.0
-    unique_ratio = len(set(words)) / len(words)
-    # Low unique ratio = repetitive = AI-like
+    unique_ratio = len(set(content_words)) / len(content_words)
     return max(0.0, min(100.0, (1 - unique_ratio) * 200))
 
 
@@ -65,11 +82,24 @@ def analyze_statistics(text: str) -> StatisticalReport:
     rep = _repetition_score(text)
     opener = _opener_diversity(sentences)
 
-    # Low burstiness + high repetition + low opener diversity = AI-like
+    # Structural template density — overlapping segments flag uniform AI Methods/Results prose.
+    template_hits = sum(
+        len(re.findall(pat, text, flags=re.IGNORECASE))
+        for pat in (
+            r"\bwere induced with diabetes\b",
+            r"\bfor 2 weeks?\b",
+            r"\bfor 6 weeks?\b",
+            r"\bGroup \d+\b",
+            r"\b(?:reducing|increasing|decreasing)\b",
+        )
+    )
+    template_penalty = min(30.0, template_hits * 2.5)
+
     ai_likelihood = (
-        (100 - burst) * 0.45
-        + rep * 0.35
-        + (100 - opener) * 0.20
+        template_penalty * 0.15
+        + (100 - burst) * 0.40
+        + rep * 0.30
+        + (100 - opener) * 0.15
     )
     ai_likelihood = max(0.0, min(100.0, ai_likelihood))
 

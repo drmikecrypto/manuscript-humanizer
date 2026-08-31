@@ -1,0 +1,41 @@
+{
+  "category": "zerogpt_pass",
+  "rules": [
+    {
+      "pattern": "Diabetes is a common endocrine-metabolic disorder that disrupts glucose metabolism and causes metabolic and anabolic disturbances",
+      "replacement": "Diabetes mellitus is a common metabolic-endocrine disorder marked by impaired glucose metabolism and anabolic and metabolic abnormalities"
+    },
+    {
+      "pattern": "Diabetes mellitus commonly impairs glucose metabolism and is associated with metabolic and anabolic disturbances",
+      "replacement": "Diabetes mellitus is a common metabolic-endocrine disorder marked by impaired glucose metabolism and anabolic and metabolic abnormalities"
+    },
+    {
+      "pattern": "Type 1 diabetes \\(insulin-dependent\\) and Type 2 diabetes \\(non-insulin-dependent\\) are distinguished; the latter needs long-term care because hyperglycemia, ketosis, cardiovascular and renal disease, severe infections, and death may occur",
+      "replacement": "This disease is mainly split into Type 1 (insulin-dependent) and Type 2 (non-insulin-dependent) forms. Type 2 diabetes requires ongoing care; complications may include hyperglycemia, ketosis, hyperosmolar shock, coma, cardiovascular disease, arteriosclerosis, ocular, renal, and neurological disease, severe infections, and death"
+    },
+    {
+      "pattern": "Group 7 had a 2-week run-in, streptozotocin diabetes induction, then glibenclamide for 6 weeks",
+      "replacement": "Group 7 followed the same 2-week run-in and STZ diabetes protocol, then received glibenclamide for 6 weeks"
+    },
+    {
+      "pattern": "Glucose, insulin, and body weight were checked before diabetes induction, at 2-3 days post-STZ, after 2 weeks on treatment, and at 6 weeks",
+      "replacement": "We measured blood glucose, insulin, and body weight before diabetes induction, at 2-3 days post-STZ, after 2 weeks of treatment, and at 6 weeks"
+    },
+    {
+      "pattern": "Diabetic rats given nettle, fenugreek, or both showed lower glucose and body weight and higher insulin",
+      "replacement": "In diabetic rats, nettle and fenugreek extracts lowered blood glucose and body weight; insulin levels rose, alone or in combination"
+    },
+    {
+      "pattern": "Effects matched those seen with the diabetes drug glibenclamide",
+      "replacement": "The response was broadly similar to glibenclamide, a standard diabetes drug"
+    },
+    {
+      "pattern": "Clinical work in patients is required to verify dose and benefit",
+      "replacement": "Clinical studies in patients are still needed to confirm these findings and set an appropriate dose"
+    },
+    {
+      "pattern": "Treated rats had lower glucose and body weight and higher insulin",
+      "replacement": "In treated rats, these extracts reduced blood glucose, increased insulin, and lowered body weight"
+    }
+  ]
+}

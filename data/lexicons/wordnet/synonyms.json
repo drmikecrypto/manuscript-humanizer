@@ -1,0 +1,234 @@
+{
+  "utilize": [
+    "use",
+    "apply",
+    "employ"
+  ],
+  "utilized": [
+    "used",
+    "applied",
+    "employed"
+  ],
+  "facilitate": [
+    "enable",
+    "allow",
+    "support"
+  ],
+  "facilitated": [
+    "enabled",
+    "allowed",
+    "supported"
+  ],
+  "leverage": [
+    "apply",
+    "use",
+    "draw on"
+  ],
+  "comprehensive": [
+    "broad",
+    "detailed",
+    "full"
+  ],
+  "robust": [
+    "stable",
+    "reliable",
+    "solid"
+  ],
+  "significantly": [
+    "markedly",
+    "clearly",
+    "noticeably"
+  ],
+  "substantially": [
+    "considerably",
+    "markedly",
+    "clearly"
+  ],
+  "demonstrate": [
+    "show",
+    "reveal",
+    "indicate"
+  ],
+  "demonstrated": [
+    "showed",
+    "revealed",
+    "indicated"
+  ],
+  "indicate": [
+    "suggest",
+    "show",
+    "imply"
+  ],
+  "indicated": [
+    "suggested",
+    "showed",
+    "implied"
+  ],
+  "conducted": [
+    "carried out",
+    "performed",
+    "done"
+  ],
+  "performed": [
+    "carried out",
+    "conducted",
+    "done"
+  ],
+  "approximately": [
+    "about",
+    "roughly",
+    "around"
+  ],
+  "various": [
+    "several",
+    "different",
+    "multiple"
+  ],
+  "commonly": [
+    "often",
+    "typically",
+    "usually"
+  ],
+  "effective": [
+    "useful",
+    "beneficial",
+    "active"
+  ],
+  "results": [
+    "findings",
+    "outcomes",
+    "data"
+  ],
+  "study": [
+    "work",
+    "investigation",
+    "trial"
+  ],
+  "however": [
+    "yet",
+    "still",
+    "nevertheless"
+  ],
+  "therefore": [
+    "thus",
+    "hence",
+    "so"
+  ],
+  "important": [
+    "relevant",
+    "notable",
+    "key"
+  ],
+  "characterized": [
+    "marked",
+    "defined",
+    "described"
+  ],
+  "primarily": [
+    "mainly",
+    "chiefly",
+    "largely"
+  ],
+  "continuous": [
+    "ongoing",
+    "regular",
+    "sustained"
+  ],
+  "serious": [
+    "severe",
+    "major",
+    "critical"
+  ],
+  "develop": [
+    "shape",
+    "form",
+    "build"
+  ],
+  "strategies": [
+    "approaches",
+    "plans",
+    "methods"
+  ],
+  "therapeutic": [
+    "treatment",
+    "clinical",
+    "medical"
+  ],
+  "management": [
+    "care",
+    "handling",
+    "control"
+  ],
+  "quality": [
+    "standard",
+    "level",
+    "grade"
+  ],
+  "patients": [
+    "subjects",
+    "individuals",
+    "people"
+  ],
+  "physicians": [
+    "clinicians",
+    "doctors",
+    "practitioners"
+  ],
+  "scientists": [
+    "researchers",
+    "investigators",
+    "scholars"
+  ],
+  "necessary": [
+    "required",
+    "needed",
+    "essential"
+  ],
+  "findings": [
+    "results",
+    "observations",
+    "data"
+  ],
+  "confirm": [
+    "verify",
+    "validate",
+    "establish"
+  ],
+  "appropriate": [
+    "suitable",
+    "proper",
+    "adequate"
+  ],
+  "extracts": [
+    "preparations",
+    "formulations",
+    "treatments"
+  ],
+  "diabetes": [
+    "glycemic disorder",
+    "hyperglycemia"
+  ],
+  "glucose": [
+    "blood sugar",
+    "glycemia"
+  ],
+  "insulin": [
+    "insulin levels",
+    "insulin concentration"
+  ],
+  "furthermore": [
+    "also",
+    "in addition",
+    "besides"
+  ],
+  "moreover": [
+    "also",
+    "besides",
+    "in addition"
+  ],
+  "additionally": [
+    "also",
+    "besides",
+    "further"
+  ]
+}

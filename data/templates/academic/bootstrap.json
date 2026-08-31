@@ -1,0 +1,53 @@
+{
+  "category": "bootstrap",
+  "rules": [
+    {
+      "pattern": "In this study, male Wistar rats weighing 190-210 grams were randomly divided into 8 groups",
+      "replacement": "We randomised 8 groups of male Wistar rats (190-210 g) after acclimation"
+    },
+    {
+      "pattern": "Group 1 \\(control\\) received no treatment",
+      "replacement": "Group 1 (control) had no intervention"
+    },
+    {
+      "pattern": "Group 2 \\(diabetic control\\) received physiological serum for 2 weeks and then were induced with diabetes using streptozotocin, followed by an additional 6 weeks of physiological serum",
+      "replacement": "Group 2 (diabetic control) had a 2-week physiological serum period, streptozotocin diabetes induction, then 6 weeks of vehicle"
+    },
+    {
+      "pattern": "Groups 3 to 6 received physiological serum for 2 weeks, were induced with diabetes, and then treated with nettle extract, fenugreek extract, and a combination of both extracts, respectively, for 6 weeks",
+      "replacement": "For groups 3-6, we used a 2-week run-in, STZ to induce diabetes, then 6 weeks of nettle extract, fenugreek extract, or both extracts, respectively"
+    },
+    {
+      "pattern": "Group 7 received physiological serum for 2 weeks, were induced with diabetes, and then treated with glibenclamide for 6 weeks",
+      "replacement": "Group 7 followed the same 2-week run-in and STZ diabetes protocol, then received glibenclamide for 6 weeks"
+    },
+    {
+      "pattern": "Measurements of blood glucose, insulin levels, and body weight were performed at various stages: before diabetes induction, 2-3 days after diabetes induction, 2 weeks after the start of treatment, and 6 weeks after diabetes induction",
+      "replacement": "Glucose, insulin, and body weight were checked at baseline, 2-3 days post-STZ, at 2 weeks on treatment, and at week 6 after diabetes induction"
+    },
+    {
+      "pattern": "The results indicated that nettle and fenugreek extracts, both individually and in combination, were effective in reducing blood glucose levels, increasing insulin levels, and decreasing body weight in diabetic rats",
+      "replacement": "With nettle, fenugreek, or both, diabetic rats had lower glucose and body weight and higher insulin"
+    },
+    {
+      "pattern": "Additionally, the efficacy of these extracts was comparable to the commonly used diabetes drug, glibenclamide",
+      "replacement": "Effects matched those seen with the diabetes drug glibenclamide"
+    },
+    {
+      "pattern": "This study suggests that nettle and fenugreek extracts could be considered as complementary herbal medicines in the treatment of diabetes",
+      "replacement": "Nettle and fenugreek extracts may work as add-on herbal options in diabetes care"
+    },
+    {
+      "pattern": "The results indicate that these extracts can effectively reduce blood glucose levels and increase insulin levels while also reducing body weight",
+      "replacement": "In treated rats, glucose fell, insulin rose, and body weight declined"
+    },
+    {
+      "pattern": "However, to confirm these findings and determine the appropriate dosage, clinical studies on humans are necessary",
+      "replacement": "Clinical work in patients is required to verify dose and benefit"
+    },
+    {
+      "pattern": "Such studies could help scientists and physicians develop the best therapeutic strategies for diabetes management and improve the quality of life for diabetic patients",
+      "replacement": "Such work could help clinicians improve diabetes care and patient quality of life"
+    }
+  ]
+}
