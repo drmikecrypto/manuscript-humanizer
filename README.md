@@ -18,16 +18,17 @@
 ```powershell
 git clone https://github.com/drmikecrypto/manuscript-humanizer.git
 cd manuscript-humanizer
-.\humanize.ps1 your_draft.md
-# → your_draft_humanized.md
+.\humanize.ps1 your_draft.docx          # → your_draft_humanized.docx
+.\humanize.ps1 your_thesis.pdf -InPlace # overwrite + .bak backup
 ```
 
-First run auto-creates `.venv` and installs deps. No API key. No cloud.
+**Supported formats:** `.txt` · `.md` · `.docx` · `.pdf` (Word/PDF need `pip install -e ".[full]"`)
 
 ```bash
 pip install -e ".[full]"
-mh your_draft.md
-mh score your_draft.md --show-spans
+mh your_draft.docx
+mh thesis.pdf -i                        # in-place (same file, backup created)
+mh score your_draft.pdf
 ```
 
 ---
@@ -107,10 +108,14 @@ one_shot = false
 
 | Command | What it does |
 |---------|--------------|
-| `mh paper.md` | Humanize → `paper_humanized.md` |
-| `mh humanize draft.txt -o out.txt` | Explicit output |
-| `mh score paper.md` | AI likelihood + sentence heatmap |
+| `mh paper.docx` | Humanize → `paper_humanized.docx` |
+| `mh thesis.pdf -i` | Overwrite same file (`.bak` backup first) |
+| `mh humanize draft.txt -o out.txt` | Explicit output path |
+| `mh score paper.pdf` | AI likelihood + sentence heatmap |
 | `mh models download` | Fetch ONNX detector |
+
+**Formats:** plain text (`.txt`, `.md`, `.tex`, …), **Word** (`.docx`), **PDF** (`.pdf`).  
+Convert formats freely: `mh draft.docx -o clean.pdf`
 
 Exit codes: `0` = fidelity pass, `2` = finished with warnings.
 

@@ -1,13 +1,16 @@
 # Humanize any manuscript file — one command, no flags required.
 # Usage:
-#   .\humanize.ps1 manuscript.md
+#   .\humanize.ps1 manuscript.docx
+#   .\humanize.ps1 manuscript.pdf -InPlace
 #   .\humanize.ps1 manuscript.md output.md
 param(
     [Parameter(Position = 0)]
     [string]$InputFile,
 
     [Parameter(Position = 1)]
-    [string]$OutputFile
+    [string]$OutputFile,
+
+    [switch]$InPlace
 )
 
 $ErrorActionPreference = "Stop"
@@ -34,10 +37,13 @@ if (-not $InputFile) {
     Write-Host ""
     Write-Host "Manuscript Humanizer" -ForegroundColor Cyan
     Write-Host "--------------------"
-    Write-Host "Usage:  .\humanize.ps1 <input-file> [output-file]"
+    Write-Host "Usage:  .\humanize.ps1 <input-file> [output-file] [-InPlace]"
+    Write-Host ""
+    Write-Host "Supported: .txt .md .docx .pdf"
     Write-Host ""
     Write-Host "Examples:"
-    Write-Host "  .\humanize.ps1 manuscript.md"
+    Write-Host "  .\humanize.ps1 manuscript.docx"
+    Write-Host "  .\humanize.ps1 thesis.pdf -InPlace"
     Write-Host "  .\humanize.ps1 examples\demo_manuscript.md"
     Write-Host ""
     exit 1
@@ -51,7 +57,10 @@ Ensure-Environment
 
 $resolvedInput = (Resolve-Path -LiteralPath $InputFile).Path
 $mhArgs = @($resolvedInput)
-if ($OutputFile) {
+if ($InPlace) {
+    $mhArgs += @("-i")
+}
+elseif ($OutputFile) {
     $mhArgs += @("-o", $OutputFile)
 }
 

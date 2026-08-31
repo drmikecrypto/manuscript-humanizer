@@ -12,15 +12,13 @@ from rich.table import Table
 from humanizer import __version__
 from humanizer.analyzers.model_loader import download_model, is_model_available, model_info
 from humanizer.config import AppConfig
+from humanizer.io import backup_file, load_document, resolve_output_path, save_document
+from humanizer.io.documents import DocumentPayload
 from humanizer.pipeline import HumanizerPipeline
 
 console = Console()
 
 _KNOWN_COMMANDS = frozenset({"score", "humanize", "models", "help"})
-
-
-def _default_output_path(input_path: Path) -> Path:
-    return input_path.with_name(f"{input_path.stem}_humanized{input_path.suffix or '.txt'}")
 
 
 def _preprocess_argv(argv: list[str] | None) -> list[str] | None:
@@ -50,18 +48,23 @@ def _preprocess_argv(argv: list[str] | None) -> list[str] | None:
 def _resolve_paths(args: argparse.Namespace) -> None:
     if getattr(args, "input_file", None) and not args.file:
         args.file = args.input_file
-    if args.file and not args.output and args.command in (None, "humanize"):
-        args.output = str(_default_output_path(Path(args.file)))
+    if not args.file:
+        return
+    input_path = Path(args.file)
+    if getattr(args, "in_place", False):
+        args.output = str(input_path)
+    elif not args.output and args.command in (None, "humanize"):
+        args.output = str(resolve_output_path(input_path))
 
 
-def _read_input(args: argparse.Namespace) -> str:
+def _load_input(args: argparse.Namespace) -> DocumentPayload:
     if args.text:
-        return args.text
+        return DocumentPayload(text=args.text)
     if args.file:
-        return Path(args.file).read_text(encoding="utf-8")
+        return load_document(Path(args.file))
     if not sys.stdin.isatty():
-        return sys.stdin.read()
-    console.print("[red]No input. Use --file, --text, or pipe via stdin.[/red]")
+        return DocumentPayload(text=sys.stdin.read(), format="text")
+    console.print("[red]No input. Use a file path, --file, --text, or pipe via stdin.[/red]")
     sys.exit(1)
 
 
@@ -142,7 +145,8 @@ async def _run_humanize(args: argparse.Namespace) -> int:
     if not _ensure_ml_deps(config):
         return 1
 
-    text = _read_input(args)
+    payload = _load_input(args)
+    text = payload.text
     pipeline = HumanizerPipeline(config)
     engine = config.pipeline.engine
 
@@ -156,6 +160,8 @@ async def _run_humanize(args: argparse.Namespace) -> int:
         else f"Max iterations: {config.pipeline.max_iterations}"
     )
     console.print(Panel(f"Processing {len(text):,} characters...", title="Manuscript Humanizer"))
+    if payload.source_path:
+        console.print(f"[dim]Input: {payload.source_path} ({payload.format})[/dim]")
     console.print(
         f"[dim]Engine: {engine} | Target score: <={config.pipeline.target_ai_score} | "
         f"{max_label}[/dim]\n"
@@ -192,8 +198,13 @@ async def _run_humanize(args: argparse.Namespace) -> int:
                 console.print(f"  {tag}")
 
     if args.output:
-        Path(args.output).write_text(result.final, encoding="utf-8")
-        console.print(f"\n[green]Saved to {args.output}[/green]")
+        out_path = Path(args.output)
+        if getattr(args, "in_place", False) and payload.source_path:
+            backup = backup_file(payload.source_path)
+            if backup:
+                console.print(f"[dim]Backup: {backup}[/dim]")
+        saved = save_document(out_path, result.final, payload)
+        console.print(f"\n[green]Saved to {saved}[/green]")
         console.print("[dim]Verify manually at https://www.zerogpt.com/[/dim]")
     else:
         console.print("\n" + "─" * 60 + "\n")
@@ -227,7 +238,13 @@ def _add_common_args(parser: argparse.ArgumentParser, *, positional: bool = Fals
     parser.add_argument(
         "-o",
         "--output",
-        help="Output file path (default: <input>_humanized.<ext>)",
+        help="Output file path (default: <input>_humanized.<ext>; use -i for same file)",
+    )
+    parser.add_argument(
+        "-i",
+        "--in-place",
+        action="store_true",
+        help="Overwrite the input file (creates a timestamped .bak backup first)",
     )
     parser.add_argument("--target", type=float, help="Target AI score (default from config)")
     parser.add_argument("--iterations", type=int, help="Max rewrite iterations (legacy engine)")
@@ -244,8 +261,10 @@ def main(argv: list[str] | None = None) -> int:
         prog="mh",
         description=(
             "Humanize academic manuscripts for lower AI-detector scores.\n\n"
+            "Supports .txt, .md, .docx, .pdf (install formats: pip install -e \".[full]\").\n\n"
             "Examples:\n"
-            "  mh manuscript.md\n"
+            "  mh manuscript.docx\n"
+            "  mh thesis.pdf -i\n"
             "  mh humanize draft.txt -o clean.txt\n"
             "  mh score manuscript.md\n"
             "  echo \"text\" | mh score"
@@ -285,8 +304,10 @@ def main(argv: list[str] | None = None) -> int:
         _apply_config_overrides(config, args)
         if not _ensure_ml_deps(config):
             return 1
-        text = _read_input(args)
-        _print_span_report(HumanizerPipeline(config), text, show_spans=getattr(args, "show_spans", True))
+        payload = _load_input(args)
+        _print_span_report(
+            HumanizerPipeline(config), payload.text, show_spans=getattr(args, "show_spans", True)
+        )
         return 0
 
     return asyncio.run(_run_humanize(args))

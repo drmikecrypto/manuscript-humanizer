@@ -91,8 +91,9 @@ def test_pipeline_runs_offline_without_api_key(monkeypatch):
 def test_cli_preprocess_positional_file():
     from pathlib import Path
 
-    from humanizer.cli import _default_output_path, _preprocess_argv
+    from humanizer.cli import _preprocess_argv
+    from humanizer.io.documents import resolve_output_path
 
     assert _preprocess_argv(["draft.md"]) == ["humanize", "-f", "draft.md"]
     assert _preprocess_argv(["humanize", "draft.md"]) == ["humanize", "-f", "draft.md"]
-    assert _default_output_path(Path("chapter1.md")) == Path("chapter1_humanized.md")
+    assert resolve_output_path(Path("chapter1.md")) == Path("chapter1_humanized.md")

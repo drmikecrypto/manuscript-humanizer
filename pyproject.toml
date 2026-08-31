@@ -46,7 +46,8 @@ dependencies = [
 [project.optional-dependencies]
 ml = ["onnxruntime>=1.17", "tokenizers>=0.15", "numpy>=1.24"]
 lexicon = ["wordfreq>=3.0"]
-full = ["manuscript-humanizer[ml,lexicon]"]
+formats = ["python-docx>=1.1.0", "pymupdf>=1.24.0"]
+full = ["manuscript-humanizer[ml,lexicon,formats]"]
 llm = ["openai>=1.30.0"]
 dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
 
