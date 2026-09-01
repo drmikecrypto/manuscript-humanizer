@@ -15,6 +15,48 @@ def _templates_root() -> Path:
     return here.parent / "data" / "templates" / "academic"
 
 
+def _outbound_templates_root() -> Path:
+    here = Path(__file__).resolve()
+    for parent in here.parents:
+        candidate = parent / "data" / "templates" / "outbound"
+        if candidate.is_dir():
+            return candidate
+    return here.parent / "data" / "templates" / "outbound"
+
+
+@lru_cache(maxsize=1)
+def load_motivation_zerogpt_rules() -> list[tuple[str, str]]:
+    path = _outbound_templates_root() / "motivation_zerogpt.json"
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    rules = [(item["pattern"], item["replacement"]) for item in data.get("rules", []) if item.get("pattern")]
+    rules.sort(key=lambda r: len(r[0]), reverse=True)
+    return rules
+
+
+@lru_cache(maxsize=1)
+def load_recommendation_zerogpt_rules() -> list[tuple[str, str]]:
+    path = _outbound_templates_root() / "recommendation_zerogpt.json"
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    rules = [(item["pattern"], item["replacement"]) for item in data.get("rules", []) if item.get("pattern")]
+    rules.sort(key=lambda r: len(r[0]), reverse=True)
+    return rules
+
+
+@lru_cache(maxsize=1)
+def load_abstract_zerogpt_rules() -> list[tuple[str, str]]:
+    path = _outbound_templates_root() / "abstracts_zerogpt.json"
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    rules = [(item["pattern"], item["replacement"]) for item in data.get("rules", []) if item.get("pattern")]
+    rules.sort(key=lambda r: len(r[0]), reverse=True)
+    return rules
+
+
 @lru_cache(maxsize=1)
 def load_zerogpt_pass_rules() -> list[tuple[str, str]]:
     path = _templates_root() / "zerogpt_pass.json"
@@ -39,7 +81,41 @@ def load_academic_rules() -> list[tuple[str, str]]:
             replacement = item.get("replacement", "")
             if pattern and replacement is not None:
                 rules.append((pattern, replacement))
-    # Longest patterns first to avoid partial overlaps breaking sentences
+    rules.sort(key=lambda r: len(r[0]), reverse=True)
+    return rules
+
+
+_SHARED_VOICE_FILES = frozenset({"human_voice.json"})
+
+
+@lru_cache(maxsize=8)
+def load_section_rules(section: str) -> list[tuple[str, str]]:
+    """Load rules for one section pack plus shared human_voice rules."""
+    root = _templates_root()
+    rules: list[tuple[str, str]] = []
+    if not root.exists():
+        return rules
+
+    section_file = root / f"{section}.json"
+    if section_file.exists():
+        data = json.loads(section_file.read_text(encoding="utf-8"))
+        for item in data.get("rules", []):
+            pattern = item.get("pattern", "")
+            replacement = item.get("replacement", "")
+            if pattern and replacement is not None:
+                rules.append((pattern, replacement))
+
+    for shared in _SHARED_VOICE_FILES:
+        path = root / shared
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        for item in data.get("rules", []):
+            pattern = item.get("pattern", "")
+            replacement = item.get("replacement", "")
+            if pattern and replacement is not None:
+                rules.append((pattern, replacement))
+
     rules.sort(key=lambda r: len(r[0]), reverse=True)
     return rules
 

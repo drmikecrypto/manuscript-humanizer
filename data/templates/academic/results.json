@@ -32,6 +32,18 @@
     {
       "pattern": "The results indicate that",
       "replacement": "We observed that"
+    },
+    {
+      "pattern": "\\bAdditionally,\\s*",
+      "replacement": ""
+    },
+    {
+      "pattern": "\\beffective in reducing blood glucose levels, increasing insulin levels, and decreasing body weight\\b",
+      "replacement": "lowered glucose and body mass while insulin increased"
+    },
+    {
+      "pattern": "\\bMeasurements of (.+?) were performed\\b",
+      "replacement": "We measured \\1"
     }
   ]
 }

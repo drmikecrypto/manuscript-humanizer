@@ -4,7 +4,14 @@ import re
 from dataclasses import dataclass
 
 from humanizer.analyzers.patterns import analyze_patterns
-from humanizer.analyzers.zerogpt_proxy import ZeroGPTProxyReport, ZeroGPTProxyScorer, _get_onnx_score
+from humanizer.analyzers.zerogpt_proxy import (
+    ZeroGPTProxyReport,
+    ZeroGPTProxyScorer,
+    _get_onnx_score,
+    blend_ml_pattern,
+)
+from humanizer.rewriters.clause_rewrites import apply_clause_rewrites
+from humanizer.rewriters.section_router import build_sentence_section_map
 from humanizer.lexicon.service import LexiconService
 from humanizer.rewriters.lexicon_rewriter import apply_local_paraphrase
 from humanizer.rewriters.rhythm import apply_rhythm_pass, break_parallel_structures, merge_intro_type2_sentences
@@ -35,10 +42,10 @@ class RewriteResult:
 
 
 def _zerogpt_pick_score(sentence: str) -> float:
-    """Blend ONNX with pattern tells — ZeroGPT tracks the latter more than our ML model."""
+    """Blend ONNX with pattern tells — aligned with zerogpt_proxy.blend_ml_pattern."""
     ml = _get_onnx_score(sentence)
     pat = analyze_patterns(sentence).score
-    return ml * 0.35 + pat * 0.65
+    return blend_ml_pattern(ml, pat)
 
 
 def _candidate_pick_score(original: str, candidate: str) -> float:
@@ -135,6 +142,7 @@ def _collect_sentence_candidates(
     protected: set[str],
     *,
     doc_score: float,
+    section: str = "fallback",
 ) -> list[tuple[str, list[str]]]:
     """Build all local rewrite candidates for ML minimization."""
     seen: set[str] = {sentence}
@@ -150,17 +158,19 @@ def _collect_sentence_candidates(
 
     def add_with_template_hops(text: str, tags: list[str]) -> None:
         add(text, tags)
-        hop = apply_sentence_templates(text, original_sentence=original_sentence)
+        hop = apply_sentence_templates(text, original_sentence=original_sentence, section=section)
         if hop != text:
             add(hop, tags + ["template_hop"])
 
     chain_out, chain_tags = transform_sentence_chain(
-        sentence, lexicon, protected, doc_score=doc_score
+        sentence, lexicon, protected, doc_score=doc_score, section=section
     )
     if chain_out != sentence:
         add_with_template_hops(chain_out, chain_tags)
 
-    template_out = apply_sentence_templates(sentence, original_sentence=original_sentence)
+    template_out = apply_sentence_templates(
+        sentence, original_sentence=original_sentence, section=section
+    )
     if template_out != sentence:
         add_with_template_hops(template_out, ["template"])
 
@@ -198,6 +208,7 @@ def transform_sentence_chain(
     *,
     max_rounds: int = 3,
     doc_score: float = 100.0,
+    section: str = "fallback",
 ) -> tuple[str, list[str]]:
     """Multi-step transform chain with sentence-level fidelity after each step."""
     original = sentence
@@ -208,7 +219,8 @@ def transform_sentence_chain(
 
     def _template_step(s: str) -> str:
         nonlocal template_applied
-        out = apply_sentence_templates(s, original_sentence=original)
+        out = apply_clause_rewrites(s, original_sentence=original, section=section)
+        out = apply_sentence_templates(out, original_sentence=original, section=section)
         if out != s:
             template_applied = True
         return out
@@ -291,6 +303,7 @@ class TargetedRewriter:
 
         protected = self.lexicon.extract_protected_from_text(baseline)
         original_sentences = split_manuscript_sentences(baseline)
+        section_map = build_sentence_section_map(baseline, sentences)
         orig_map = {
             i: original_sentences[i] if i < len(original_sentences) else s
             for i, s in enumerate(sentences)
@@ -334,6 +347,7 @@ class TargetedRewriter:
                 self.lexicon,
                 protected,
                 doc_score=current_ml_doc,
+                section=section_map[idx] if idx < len(section_map) else "fallback",
             )
             if not candidates:
                 continue

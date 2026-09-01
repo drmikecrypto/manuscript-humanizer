@@ -22,6 +22,15 @@ PARALLEL_TRIPLE_RE = re.compile(
 
 _onnx_classifier: object | None = None
 
+# Rewriter candidate picker: ONNX + pattern blend (higher pattern weight than document proxy).
+REWRITER_ML_WEIGHT = 0.35
+REWRITER_PATTERN_WEIGHT = 0.65
+
+
+def blend_ml_pattern(ml: float, pattern_score: float) -> float:
+    """Shared ML + pattern blend for rewriter candidate selection."""
+    return ml * REWRITER_ML_WEIGHT + pattern_score * REWRITER_PATTERN_WEIGHT
+
 
 def _get_onnx_score(sentence: str) -> float:
     global _onnx_classifier

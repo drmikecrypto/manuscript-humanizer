@@ -54,14 +54,16 @@ max_passes = 1
 
 | Signal | Weight | Purpose |
 |--------|--------|---------|
-| Template phrases (P25–P36) | 25% | Stock academic AI tells |
-| Sentence ONNX score | 20% | ML classifier per sentence |
-| Legacy stylometrics | 20% | Burstiness, patterns |
-| Parallel triple verbs | 25% | "reducing X, increasing Y, decreasing Z" |
-| Opener repetition | 10% | Same sentence opener used 2+ times |
-| Uniform length | 10% | Sentences near doc median length |
+| Sentence ONNX score | 50% | ML classifier per sentence |
+| Template phrases (P25–P36) | 15% | Stock academic AI tells |
+| Parallel triple verbs | 15% | "reducing X, increasing Y, decreasing Z" |
+| Legacy stylometrics | 10% | Burstiness, patterns |
+| Opener repetition | 5% | Same sentence opener used 2+ times |
+| Uniform length | 5% | Sentences near doc median length |
 
 Document score = mean of **top 5 sentence scores** (short texts: worst sentences dominate).
+
+The targeted rewriter candidate picker uses the same ONNX/pattern blend via `blend_proxy_score()` in `zerogpt_proxy.py`.
 
 ## Adding templates
 

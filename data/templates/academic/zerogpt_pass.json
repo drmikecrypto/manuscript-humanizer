@@ -36,6 +36,26 @@
     {
       "pattern": "Treated rats had lower glucose and body weight and higher insulin",
       "replacement": "In treated rats, these extracts reduced blood glucose, increased insulin, and lowered body weight"
+    },
+    {
+      "pattern": "Pancreatic cancer has high mortality because diagnosis often comes late, tumors grow aggressively, and treatment resistance is common",
+      "replacement": "Pancreatic cancer kills quickly partly because tumours are often found late, grow fast, and resist standard treatment"
+    },
+    {
+      "pattern": "Cancer stem cells \\(CSCs\\) contribute to progression, metastasis, and immune evasion",
+      "replacement": "Cancer stem cells (CSCs) are tied to spread, relapse, and escape from immune control"
+    },
+    {
+      "pattern": "We combined bioinformatics and pathway analysis to identify CSC markers",
+      "replacement": "Bioinformatics and pathway work highlighted CSC markers"
+    },
+    {
+      "pattern": "Pathway enrichment analysis mapped metabolic and signaling pathways linked to CSCs",
+      "replacement": "Enrichment analysis tied CSC behaviour to specific metabolic and signalling pathways"
+    },
+    {
+      "pattern": "Pathway analysis pointed to metabolic dysregulation and immune evasion as CSC survival mechanisms",
+      "replacement": "Pathways implicated metabolic stress and immune escape in CSC survival"
     }
   ]
 }

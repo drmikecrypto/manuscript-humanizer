@@ -2,15 +2,25 @@ from __future__ import annotations
 
 import re
 
-from humanizer.templates.loader import apply_template_rules, load_academic_rules, load_zerogpt_pass_rules
+from humanizer.templates.loader import (
+    apply_template_rules,
+    load_academic_rules,
+    load_section_rules,
+    load_zerogpt_pass_rules,
+)
 from humanizer.validators.fidelity import validate_template_fidelity
 
 
-def apply_sentence_templates(sentence: str, *, original_sentence: str | None = None) -> str:
-    """Apply template rules to a single sentence with hard-gate fidelity only."""
+def apply_sentence_templates(
+    sentence: str,
+    *,
+    original_sentence: str | None = None,
+    section: str = "fallback",
+) -> str:
+    """Apply section-scoped template rules to a single sentence with hard-gate fidelity."""
     baseline = original_sentence or sentence
     current = sentence
-    for pattern, repl in load_academic_rules():
+    for pattern, repl in load_section_rules(section):
         if not re.search(pattern, current, flags=re.IGNORECASE):
             continue
         candidate = re.sub(pattern, repl, current, flags=re.IGNORECASE)
@@ -47,7 +57,6 @@ def apply_safe_section_rewrites(text: str, *, min_similarity: float = 0.72) -> s
     return apply_template_rules(text)
 
 
-# Backward compatibility alias
 ALL_SECTION_RULES = load_academic_rules()
 
 

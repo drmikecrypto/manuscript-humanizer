@@ -28,6 +28,18 @@
     {
       "pattern": "serious complications such as",
       "replacement": "severe complications including"
+    },
+    {
+      "pattern": "\\bone of the most common\\b",
+      "replacement": "a common"
+    },
+    {
+      "pattern": "\\brequires continuous care and regular treatments\\b",
+      "replacement": "needs ongoing care and regular treatment"
+    },
+    {
+      "pattern": "\\bThis disease is primarily divided into two main types\\b",
+      "replacement": "The disease falls into two main types"
     }
   ]
 }

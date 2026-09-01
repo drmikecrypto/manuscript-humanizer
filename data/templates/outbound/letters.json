@@ -1,0 +1,53 @@
+{
+  "category": "outbound_letters",
+  "rules": [
+    {
+      "pattern": "I am applying for the position advertised as ([^.]+)\\.",
+      "replacement": "I am applying for \\1."
+    },
+    {
+      "pattern": "I am writing to provide my strongest recommendation for MohammadJavad Darabi",
+      "replacement": "I am writing to provide my strongest recommendation for Mohammad Javad Darabi"
+    },
+    {
+      "pattern": "I write and speak English at a professional level \\(BA English Translation; years of tutoring and technical reports\\)",
+      "replacement": "I write and speak English at a professional level (BA English Translation; years of tutoring and technical reports)"
+    },
+    {
+      "pattern": "Furthermore, ",
+      "replacement": ""
+    },
+    {
+      "pattern": "Moreover, ",
+      "replacement": ""
+    },
+    {
+      "pattern": "Additionally, ",
+      "replacement": ""
+    },
+    {
+      "pattern": "In conclusion, ",
+      "replacement": ""
+    },
+    {
+      "pattern": "It is worth noting that ",
+      "replacement": ""
+    },
+    {
+      "pattern": "plays a crucial role in",
+      "replacement": "is important in"
+    },
+    {
+      "pattern": "We combined bioinformatics and pathway analysis to identify CSC markers",
+      "replacement": "We used bioinformatics and pathway analysis to identify CSC markers"
+    },
+    {
+      "pattern": "Validation in experimental models and clinical settings is still required",
+      "replacement": "Validation in experimental models and clinical settings remains necessary"
+    },
+    {
+      "pattern": "These results support further work on peptide-based vaccines targeting CSCs in pancreatic cancer",
+      "replacement": "These results support further work on peptide vaccines targeting CSCs in pancreatic cancer"
+    }
+  ]
+}

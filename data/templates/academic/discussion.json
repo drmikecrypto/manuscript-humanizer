@@ -40,6 +40,22 @@
     {
       "pattern": "could be considered as complementary",
       "replacement": "are candidate adjunct options"
+    },
+    {
+      "pattern": "\\bFurthermore,\\s*",
+      "replacement": ""
+    },
+    {
+      "pattern": "\\bMoreover,\\s*",
+      "replacement": ""
+    },
+    {
+      "pattern": "\\bThis study suggests that\\b",
+      "replacement": "Our findings suggest that"
+    },
+    {
+      "pattern": "\\bcan effectively reduce blood glucose levels and increase insulin levels while also reducing body weight\\b",
+      "replacement": "lowered glucose and raised insulin while body weight fell"
     }
   ]
 }

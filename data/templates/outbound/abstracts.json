@@ -1,0 +1,53 @@
+{
+  "category": "conference_abstract_imrad",
+  "rules": [
+    {
+      "pattern": "Pancreatic cancer has high mortality because diagnosis often comes late, tumors grow aggressively, and treatment resistance is common",
+      "replacement": "Pancreatic cancer has high mortality because diagnosis often comes late, tumours grow aggressively, and treatment resistance is common"
+    },
+    {
+      "pattern": "Cancer stem cells \\(CSCs\\) contribute to progression, metastasis, and immune evasion",
+      "replacement": "Cancer stem cells (CSCs) contribute to progression, metastasis, and immune evasion"
+    },
+    {
+      "pattern": "Immunotherapy directed at CSCs is one way to address these problems",
+      "replacement": "Immunotherapy directed at CSCs is one approach to address these problems"
+    },
+    {
+      "pattern": "We combined bioinformatics and pathway analysis to identify CSC markers \\(CD44, CD133, EPCAM\\) and their roles in pancreatic cancer",
+      "replacement": "We used bioinformatics and pathway analysis to identify CSC markers (CD44, CD133, EPCAM) and their roles in pancreatic cancer"
+    },
+    {
+      "pattern": "We designed epitope-based vaccine candidates from peptides predicted to bind HLA with high affinity",
+      "replacement": "We designed epitope-based vaccine candidates from peptides predicted to bind HLA with high affinity"
+    },
+    {
+      "pattern": "Pathway enrichment analysis mapped metabolic and signaling pathways linked to CSCs",
+      "replacement": "Pathway enrichment analysis mapped metabolic and signalling pathways linked to CSCs"
+    },
+    {
+      "pattern": "We identified high-affinity epitopes restricted to HLA-A02:01 and HLA-A24:02",
+      "replacement": "We identified high-affinity epitopes restricted to HLA-A02:01 and HLA-A24:02"
+    },
+    {
+      "pattern": "Pathway analysis pointed to metabolic dysregulation and immune evasion as CSC survival mechanisms",
+      "replacement": "Pathway analysis pointed to metabolic dysregulation and immune evasion as CSC survival mechanisms"
+    },
+    {
+      "pattern": "Screening supported epitope safety and coverage across populations",
+      "replacement": "Screening supported epitope safety and coverage across populations"
+    },
+    {
+      "pattern": "These results support further work on peptide-based vaccines targeting CSCs in pancreatic cancer",
+      "replacement": "These results support further work on peptide vaccines targeting CSCs in pancreatic cancer"
+    },
+    {
+      "pattern": "Validation in experimental models and clinical settings is still required",
+      "replacement": "Validation in experimental models and clinical settings remains necessary"
+    },
+    {
+      "pattern": "metabolic stress\\s+immune escape",
+      "replacement": "metabolic stress and immune escape"
+    }
+  ]
+}

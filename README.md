@@ -67,7 +67,7 @@ This project targets those signals **directly**:
 | **Stylometrics** | Burstiness, opener diversity, parallel clause templates |
 | **Fidelity validator** | Blocks rewrites that drop numbers, citations, or length |
 
-Default engine: **`one_shot = true`** — single deterministic pass, no multi-pass drift.
+Default engine: **`segment`** with template warm-up + targeted passes — **no early exit** on a half-finished rewrite. Short letters/abstracts use calibrated outbound rules; long manuscripts run up to 25 segment passes.
 
 ---
 
@@ -115,7 +115,7 @@ one_shot = false
 | `mh models download` | Fetch ONNX detector |
 
 **Formats:** plain text (`.txt`, `.md`, `.tex`, …), **Word** (`.docx`), **PDF** (`.pdf`).  
-Convert formats freely: `mh draft.docx -o clean.pdf`
+Output keeps the same format as input (PDF layout preserved; DOCX paragraph structure only). See [docs/formats.md](docs/formats.md).
 
 Exit codes: `0` = fidelity pass, `2` = finished with warnings.
 

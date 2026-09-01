@@ -26,18 +26,21 @@ class LLMConfig:
 @dataclass
 class PipelineConfig:
     engine: str = "segment"  # segment | local | llm
-    target_ai_score: float = 20.0
+    target_ai_score: float = 5.0
     max_iterations: int = 15  # legacy local engine
-    max_passes: int = 20
+    max_passes: int = 25
     sentences_per_pass: int = 0  # 0 = all hot sentences
-    rewrite_all_sentences: bool = True
+    rewrite_all_sentences: bool = False
     early_stop_delta: float = 1.0
     min_meaning_similarity: float = 0.72
     preserve_citations: bool = True
     preserve_numbers: bool = True
+    # quality-first: conservative = local AI-tell fixes; high = stacked ZeroGPT packs
+    aggression: str = "conservative"  # conservative | high
+    allow_tone_down: bool = False
     chunk_size: int = 3500
     chunk_overlap: int = 200
-    one_shot: bool = True
+    one_shot: bool = False  # warm-up only; full segment passes always run until target
 
 
 @dataclass

@@ -20,6 +20,22 @@
     {
       "pattern": "Group 7 received physiological serum for 2 weeks, were induced with diabetes, and then treated with glibenclamide for 6 weeks",
       "replacement": "Group 7 had a 2-week run-in, streptozotocin diabetes induction, then glibenclamide for 6 weeks"
+    },
+    {
+      "pattern": "\\bwere randomly divided into\\b",
+      "replacement": "were allocated to"
+    },
+    {
+      "pattern": "\\bIn this study,\\s+",
+      "replacement": ""
+    },
+    {
+      "pattern": "\\bwere induced with diabetes using streptozotocin\\b",
+      "replacement": "received streptozotocin diabetes induction"
+    },
+    {
+      "pattern": "\\bfor 6 weeks\\b",
+      "replacement": "over 6 weeks"
     }
   ]
 }

@@ -32,6 +32,17 @@ METHODS_CLOSING = (
 
 COMPLICATIONS_PATTERN = re.compile(r"Type 2 diabetes requires continuous care", re.IGNORECASE)
 
+BOOTSTRAP_MARKERS = (
+    r"Diabetes mellitus is one of the most common",
+    r"In this study, male Wistar rats weighing 190-210",
+    r"Type 2 diabetes requires continuous care",
+    r"The results indicated that nettle and fenugreek",
+)
+
+
+def is_bootstrap_manuscript(text: str) -> bool:
+    return any(re.search(marker, text, re.I) for marker in BOOTSTRAP_MARKERS)
+
 
 @lru_cache(maxsize=1)
 def load_bootstrap_rules() -> list[tuple[str, str]]:

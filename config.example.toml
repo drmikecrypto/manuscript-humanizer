@@ -10,16 +10,18 @@ max_tokens = 8192
 
 [pipeline]
 engine = "segment"
-one_shot = true
+one_shot = false
 target_ai_score = 5.0
-max_passes = 1
+max_passes = 25
 sentences_per_pass = 0
-rewrite_all_sentences = true
+rewrite_all_sentences = false
 early_stop_delta = 1.0
 max_iterations = 10
 min_meaning_similarity = 0.72
 preserve_citations = true
 preserve_numbers = true
+aggression = "conservative"
+allow_tone_down = false
 chunk_size = 3500
 chunk_overlap = 200
 
