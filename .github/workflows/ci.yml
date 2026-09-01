@@ -62,7 +62,7 @@ jobs:
 
       - name: Cache ONNX detector model
         id: model-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/manuscript-humanizer/models
           key: onnx-aigc-detector-en-${{ runner.os }}-v1
@@ -100,7 +100,7 @@ jobs:
 
       - name: Cache ONNX detector model
         id: model-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/manuscript-humanizer/models
           key: onnx-aigc-detector-en-${{ runner.os }}-v1
