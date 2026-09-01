@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 import re
+from typing import TYPE_CHECKING
 
 from humanizer.analyzers.detector import DetectionReport, detect_ai_likelihood
 from humanizer.analyzers.external import fetch_external_score
@@ -17,7 +18,6 @@ from humanizer.rewriters.outbound import (
     set_outbound_aggression,
 )
 from humanizer.rewriters.local_rewriter import LocalRewriter
-from humanizer.rewriters.llm_rewriter import LLMRewriter
 from humanizer.rewriters.targeted_rewriter import TargetedRewriter
 from humanizer.validators.fidelity import (
     FidelityReport,
@@ -26,6 +26,10 @@ from humanizer.validators.fidelity import (
     validate_document_output,
     validate_fidelity,
 )
+
+
+if TYPE_CHECKING:
+    from humanizer.rewriters.llm_rewriter import LLMRewriter
 
 
 SHORT_FORM_MARKERS = (
@@ -193,6 +197,8 @@ class HumanizerPipeline:
         if self._rewriter is None:
             engine = self.config.pipeline.engine
             if engine == "llm":
+                from humanizer.rewriters.llm_rewriter import LLMRewriter
+
                 self._rewriter = LLMRewriter(self.config.llm)
             elif engine == "local":
                 self._rewriter = LocalRewriter(self.config.pipeline.min_meaning_similarity)
@@ -519,7 +525,11 @@ class HumanizerPipeline:
                     continue
 
                 issues = _issues_from_detection(detection) + _structural_issues(chunk)
-                assert isinstance(self.rewriter, (LocalRewriter, LLMRewriter))
+                assert isinstance(self.rewriter, LocalRewriter) or self.config.pipeline.engine == "llm"
+                if self.config.pipeline.engine == "llm":
+                    from humanizer.rewriters.llm_rewriter import LLMRewriter
+
+                    assert isinstance(self.rewriter, LLMRewriter)
                 rewritten = self.rewriter.rewrite(chunk, iteration=iteration, issues=issues)
 
                 fidelity = validate_fidelity(
