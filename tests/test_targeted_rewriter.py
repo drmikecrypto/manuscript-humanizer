@@ -31,7 +31,6 @@ def test_targeted_rewriter_preserves_numbers():
 def test_manuscript_targeted_pass(calibration_manuscript):
     original = calibration_manuscript
     scorer = ZeroGPTProxyScorer(use_onnx=False, hot_threshold=40.0)
-    report = scorer.analyze(original)
     rewriter = TargetedRewriter(proxy_scorer=scorer)
     result = rewriter.rewrite_all_hot(original, original=original)
     assert validate_fidelity(original, result.text, min_similarity=0.65).passed

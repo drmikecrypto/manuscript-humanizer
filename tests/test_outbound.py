@@ -1,4 +1,3 @@
-from pathlib import Path
 
 from humanizer.rewriters.bootstrap import is_bootstrap_manuscript
 from humanizer.rewriters.outbound import (

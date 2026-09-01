@@ -112,7 +112,6 @@ def reflow_to_width_budgets(
     if len(budgets_pt) != len(original_lines):
         budgets_pt = char_budgets_from_lines(original_lines)
 
-    space_w = measure(" ")
     out: list[str] = []
     idx = 0
     for budget in budgets_pt:

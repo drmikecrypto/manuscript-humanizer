@@ -13,14 +13,12 @@ from humanizer.config import AppConfig
 from humanizer.lexicon.service import LexiconService
 from humanizer.rewriters.bootstrap import apply_bootstrap_humanize, is_bootstrap_manuscript
 from humanizer.rewriters.outbound import (
-    apply_outbound_humanize,
     apply_outbound_iterative,
     set_outbound_aggression,
 )
 from humanizer.rewriters.local_rewriter import LocalRewriter
 from humanizer.rewriters.llm_rewriter import LLMRewriter
 from humanizer.rewriters.targeted_rewriter import TargetedRewriter
-from humanizer.rewriters.section_rewrites import apply_zerogpt_polish
 from humanizer.validators.fidelity import (
     FidelityReport,
     build_manuscript_quality_report,

@@ -510,7 +510,6 @@ def reduce_lexical_repetition(text: str, *, min_count: int = 3) -> str:
         "nettle": ["Urtica", "nettle-root", "nettle leaf"],
         "fenugreek": ["Trigonella", "fenugreek seed", "Trigonella seed"],
         "blood": ["plasma", "circulating", "serum"],
-        "treatment": ["therapy", "intervention", "regimen"],
         "induction": ["establishment", "onset", "generation"],
         "combination": ["mixture", "blend", "combined therapy"],
         "comparable": ["similar", "on par", "matching"],
@@ -584,7 +583,6 @@ def _transform_body(
     sentences = [fix_transition_openers(s) for s in sentences]
 
     low_burstiness = "burstiness" in issue_text or "variance" in issue_text
-    high_repetition = "repetition" in issue_text
     low_opener = "opener" in issue_text or "same way" in issue_text
 
     if low_burstiness or iteration <= 2 or intensity != "light":

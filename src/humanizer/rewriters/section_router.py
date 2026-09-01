@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import re
 
 from humanizer.rewriters.transforms import (
     SECTION_HEADER_ONLY_RE,

@@ -7,7 +7,6 @@ from pathlib import Path
 import pytest
 
 from humanizer.io.documents import (
-    DocumentPayload,
     _align_pdf_lines,
     _propagate_paragraph_justify,
     backup_file,

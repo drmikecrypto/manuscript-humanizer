@@ -49,7 +49,7 @@ lexicon = ["wordfreq>=3.0"]
 formats = ["python-docx>=1.1.0", "pymupdf>=1.24.0"]
 full = ["manuscript-humanizer[ml,lexicon,formats]"]
 llm = ["openai>=1.30.0"]
-dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.9.0", "build>=1.2"]
 
 [project.scripts]
 manuscript-humanizer = "humanizer.cli:main"
@@ -66,3 +66,10 @@ humanizer = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["F"]
